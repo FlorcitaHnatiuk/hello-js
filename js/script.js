@@ -1,6 +1,15 @@
 
-/* let nombre = prompt("Tu nombre");
+/*condicional para chequear de que año es la patente*/
+
+let nombre = prompt("Tu nombre");
 let apellido= prompt("Y tu apellido?");
+let patente = parseInt(prompt("ingresá tu patente"));
+
+let saludo = alert("Hola " + nombre + " " + apellido + ". Gracias por sumarte a nuestra comunidad!")
+
+/*var spanWidth = $('#text span').width();
+$('#text').animate( { width: spanWidth }, 3000 );
+
 let temperatura = parseInt(prompt("Cuantos grados hacen?"));
 let clima = prompt("Como está el cielo?");
 
@@ -21,8 +30,3 @@ let saludo = alert("Hola " + nombre + " " + apellido + ". Gracias por sumarte!")
     else {
         alert("Que frio!!!");
     } */
-    
-
-/*condicional para chequear de que año es la patente*/
-
-let patente = parseInt(prompt("ingresá tu patente"));
