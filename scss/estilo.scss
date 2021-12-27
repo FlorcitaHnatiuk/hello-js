@@ -1,21 +1,46 @@
 @import "color";
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
     width: 100%;
     max-width: 1400px;
     display: block;
     margin: auto;
     min-height: 100vh;
-    background: $bg-dark;
     font-family: sans-serif;
 }
 
 h1 {
-    color: aqua;
+    color: black
+}
+
+
+.navbar {
+    color: black;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
 }
