@@ -48,23 +48,3 @@ for (let item = 0; item >= 1; item++) {
 // for (let index = 10; i >= 0; i--) {
 //     alert (i);
 // }
-
-
-// let temperatura = parseInt(prompt("Cuantos grados hacen?"));
-// let clima = prompt("Como está el cielo?");
-
-//     if (temperatura >= 30&&clima=="soleado") {
-//         alert("Que calor! andate a la pile!");
-//     }
-//     else if (temperatura < 30&&clima=="soleado") {
-//         alert("Clima ideal");
-//     }
-//     else if (temperatura <= 10&&clima=="nublado") {
-//         alert("Está re feo, quedate mirando pelis");
-//     }
-//     else if (temperatura <= 10&&clima=="soleado") {
-//         alert("Abrigate y salí a pasear!");
-//     }     
-//     else {
-//         alert("Que frio!!!");
-//     } 
