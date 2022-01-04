@@ -10,15 +10,22 @@ let espacio = " "
 let nombre = prompt("Tu nombre");
 let apellido= prompt("Y tu apellido?");
 let patente = parseInt(prompt("ingresá tu patente"));
-let contraseña = prompt("ingresá tu contraseña:");
 
-//let saludo = alert("Hola " + nombre + " " + apellido + ". Gracias por sumarte a nuestra comunidad!")
-//me gusta mas la siguiente forma! :)
-switch (nombre) {
-    case nombre:
-        alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!`);
-        break;
+let saludo = alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!`);
+
+
+/*contraseña*/
+let pass = prompt("ingresá tu contraseña:");
+let wrongPass = "";
+while (wrongPass != pass){
+    wrongPass = prompt("Ingrese nuevamente su contraseña");
 }
+let welcome = alert(`Bienvenidx${espacio}${nombre}`);
+
+/*carrito de compras*/
+
+
+
 
 //for incremental
 // for (let i = 0; i<10; i++) {
@@ -33,8 +40,6 @@ switch (nombre) {
 
 // let temperatura = parseInt(prompt("Cuantos grados hacen?"));
 // let clima = prompt("Como está el cielo?");
-
-// let saludo = alert("Hola " + nombre + " " + apellido + ". Gracias por sumarte!");
 
 //     if (temperatura >= 30&&clima=="soleado") {
 //         alert("Que calor! andate a la pile!");
