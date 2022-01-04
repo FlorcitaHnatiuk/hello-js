@@ -38,8 +38,14 @@ body.dark {
     color: yellow; }
   body.dark p {
     color: grey; }
+  body.dark .sun {
+    background-color: white;
+    left: 80%;
+    bottom: 400px; }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Bangers', cursive; }
 
 .navbar {
