@@ -22,15 +22,15 @@ let intentos = 1;
 while (wrongPass != pass){
     wrongPass = prompt("Ingrese nuevamente su contraseña");
     if (intentos <= 3) {
-        alert ("contraseña correcta ingresada");
-    } else if (intentos > 3) {
-        alert ("La contraseña no ha podido ser validada. Recargá la web.")
+        let welcome = alert(`Bienvenidx${espacio}${nombre}. La contraseña es correcta.`); 
+    } else if (intentos >= 3) {
+        let reject = alert(`${nombre}${espacio}la contraseña no es correcta. Recargá la web.`);
     } else {
         alert ("error");
     }
 }
 
-let welcome = alert(`Bienvenidx${espacio}${nombre}`);
+// let welcome = alert(`Bienvenidx${espacio}${nombre}`);
 
 /*carrito de compras*/
 for (let item = 0; item >= 1; item++) {
