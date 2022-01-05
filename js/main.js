@@ -6,37 +6,31 @@ switchButton.addEventListener('click', () => {
 });
 
 
-/*condicional para chequear de que año es la patente?*/
-let espacio = " "
+
+let espacio = " ";
 let nombre = prompt("Tu nombre");
 let apellido= prompt("Y tu apellido?");
 let patente = parseInt(prompt("ingresá tu patente"));
 
-let saludo = alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!`);
-
-
 /*contraseña*/
-let pass = prompt("ingresá tu contraseña:");
-let wrongPass = "";
-let intentos = 1;
-while (wrongPass != pass){
-    wrongPass = prompt("Ingrese nuevamente su contraseña");
+var pass = prompt("Creá tu contraseña:");
+let checkPass = prompt("ingresá tu contraseña nuevamente");
+let intentos = 0;
+
+while (checkPass != pass) {
     if (intentos <= 3) {
-        let welcome = alert(`Bienvenidx${espacio}${nombre}. La contraseña es correcta.`); 
-    } else if (intentos >= 3) {
-        let reject = alert(`${nombre}${espacio}la contraseña no es correcta. Recargá la web.`);
-    } else {
-        alert ("error");
+        alert = prompt("contraseña incorrecta, ingresala nuevamente");
+    } else if (intentos > 3) {
+        alert(`${nombre}${espacio}${apellido} ya no tenés mas intentos. Recarga la web!`);
+        break; 
     }
+    intentos++;
+}
+if (checkPass == pass){
+    alert("contraseña correcta. Podés ingresar!");
 }
 
-// let welcome = alert(`Bienvenidx${espacio}${nombre}`);
-
-/*carrito de compras*/
-for (let item = 0; item >= 1; item++) {
-    alert (`${nombre}${espacio}, agregaste un item al carrito`);
-}
-
+let saludo = alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!`);
 
 
 //for incremental
