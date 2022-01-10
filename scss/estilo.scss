@@ -1,4 +1,5 @@
 @import "color";
+@import "mixins";
 
 * {
     margin: 0;
@@ -55,10 +56,8 @@ body.dark {
         color: grey;
     }
 
-    .sun {
-        background-color: white;
-        left: 80%;
-        bottom: 400px;
+    .form-control{
+        background-color: black;
     }
 }
 
@@ -75,6 +74,10 @@ h3 {
         color: grey;
         text-decoration: none;
     }
+}
+
+footer {
+    padding: 40px 0 40px;
 }
 
 div#text {
@@ -128,4 +131,9 @@ div#text {
 .darkModeSwitch.active::after {
     left: unset;
     right: 0;
+}
+
+.usuario {
+    display: flex;
+    justify-content: center;
 }

@@ -1,0 +1,24 @@
+// Flexbox display
+@mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+  // Inline flex display
+@mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin center {
+    text-align: center;
+    justify-content: center;
+	align-items: center;
+    align-items: center;
+}

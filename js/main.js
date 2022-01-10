@@ -59,3 +59,8 @@ function calculate(num1, num2, operacion) {
     }
 }
 alert(calculate(num1, num2, operacion));
+
+let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
+let time = 0.15; //hora * jobToDo.
+const howLong = (jobToDo, time) => jobToDo*time;
+alert(howLong(jobToDo, time));

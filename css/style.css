@@ -38,10 +38,8 @@ body.dark {
     color: yellow; }
   body.dark p {
     color: grey; }
-  body.dark .sun {
-    background-color: white;
-    left: 80%;
-    bottom: 400px; }
+  body.dark .form-control {
+    background-color: black; }
 
 h1,
 h2,
@@ -53,6 +51,9 @@ h3 {
   .navbar a {
     color: grey;
     text-decoration: none; }
+
+footer {
+  padding: 40px 0 40px; }
 
 div#text {
   color: yellow;
@@ -100,3 +101,7 @@ div#text {
 .darkModeSwitch.active::after {
   left: unset;
   right: 0; }
+
+.usuario {
+  display: flex;
+  justify-content: center; }
