@@ -34,7 +34,7 @@ body {
 
 body.dark {
   background: black; }
-  body.dark h1 {
+  body.dark h1, body.dark h2 {
     color: yellow; }
   body.dark p {
     color: grey; }
