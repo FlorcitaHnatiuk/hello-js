@@ -5,10 +5,10 @@ switchButton.addEventListener('click', () => {
     switchButton.classList.toggle('active');
 });
 
-let espacio = " ";
+/* let espacio = " ";
 let nombre = prompt("Tu nombre");
 let apellido = prompt("Y tu apellido?");
-let patente = parseInt(prompt("ingresá tu patente"));
+let patente = parseInt(prompt("ingresá tu patente")); */
 
 var pass = prompt("Creá tu contraseña:");
 let checkPass = prompt("ingresá tu contraseña nuevamente");
@@ -33,7 +33,7 @@ function saludo() {
 }
 saludo();
 
-let num1 = parseInt(prompt("Ingrese valor"));
+/* let num1 = parseInt(prompt("Ingrese valor"));
 let num2 = parseInt(prompt("Ingrese un valor"));
 let operacion = prompt("ingrese tipo de operación");
 
@@ -87,4 +87,26 @@ function precioFinal (costo, total) {
 valor();
 costoGondola(costo, iva);
 precioFinal(costo, total);
-alert ("tu costo total es " + costoFinal);
+alert ("tu costo total es " + costoFinal); */
+
+
+
+class Usuario{
+    constructor(nombre, apellido, marca, modelo, patente) {
+        this.nombre = nombre,
+        this.apellido = apellido,
+        this.marca = marca,
+        this.modelo = modelo,
+        this.patente = patente
+    }
+}
+
+// const usuario1 = new Usuario ("flor", "hnatiuk", "ford", "ka", "aa181gi");
+
+const usuario1 = new Usuario 
+    (nombre = prompt("tu nombre?"),
+    apellido = prompt("tu apellido?"),
+    marca = prompt("marca"),
+    modelo = prompt("modelo"),
+    patente = prompt("patente")
+)
