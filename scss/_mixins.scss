@@ -7,7 +7,7 @@
     display: flex;
 }
 
-  // Inline flex display
+// Inline flex display
 @mixin inline-flex {
     display: -webkit-inline-box;
     display: -moz-inline-box;
@@ -19,6 +19,39 @@
 @mixin center {
     text-align: center;
     justify-content: center;
-	align-items: center;
     align-items: center;
+    align-items: center;
+}
+
+// padding
+
+@mixin padding {
+    padding: 1.5% 5%;
+}
+
+// li
+
+@mixin lis {
+    list-style-type: none;
+    margin-right: 20px;
+    line-height: 1.5rem;
+}
+
+// iconos
+@mixin lg-icon-size($size: 50px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+
+@mixin md-icon-size($size: 40px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+}
+
+@mixin sm-icon-size($size: 32px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
 }

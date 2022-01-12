@@ -40,15 +40,16 @@ function calculate(num1, num2, operacion) {
             break;
     }
 }
-alert(calculate(num1, num2, operacion));
+alert(calculate(num1, num2, operacion));*/
 
+/* 
 let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
-let time = 0.15; //hora * jobToDo.
+let time = 0.15;
 const howLong = (jobToDo, time) => jobToDo * time;
-alert(howLong(jobToDo, time));
+alert(howLong(jobToDo, time)); */
 
 
-let costo = 0;
+/*let costo = 0;
 let iva = 0.21;
 let total = 0;
 let costoFinal = 0;
@@ -75,9 +76,10 @@ alert ("tu costo total es " + costoFinal); */
 
 
 class Usuario{
-    constructor(nombre, apellido, marca, modelo, patente) {
+    constructor(nombre, apellido, email, marca, modelo, patente) {
         this.nombre = nombre,
         this.apellido = apellido,
+        this.email = email,
         this.marca = marca,
         this.modelo = modelo,
         this.patente = patente
@@ -87,6 +89,7 @@ class Usuario{
 const usuario1 = new Usuario 
     (nombre = prompt("tu nombre?"),
     apellido = prompt("tu apellido?"),
+    email = prompt("tu email"),
     marca = prompt("marca"),
     modelo = prompt("modelo"),
     patente = prompt("patente")

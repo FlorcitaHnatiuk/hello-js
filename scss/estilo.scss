@@ -48,7 +48,8 @@ body {
 body.dark {
     background: black;
 
-    h1, h2{
+    h1,
+    h2 {
         color: yellow;
     }
 
@@ -56,7 +57,7 @@ body.dark {
         color: grey;
     }
 
-    .form-control{
+    .form-control {
         background-color: black;
     }
 }
@@ -136,4 +137,20 @@ div#text {
 .usuario {
     display: flex;
     justify-content: center;
+}
+
+footer {
+    @include padding;
+    ul {             
+        @include flexbox;
+        @include center;
+        li {
+            @include inline-flex;
+            @include lis;
+            @include sm-icon-size;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
 }
