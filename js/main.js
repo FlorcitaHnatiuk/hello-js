@@ -6,7 +6,6 @@ switchButton.addEventListener('click', () => {
 });
 
 let espacio = " ";
-
 let nombre;
 let apellido;
 let marca;
@@ -112,3 +111,15 @@ if (checkPass == pass) {
 }
 
 saludo();
+
+class Work {
+    constructor (precio, tiempo) {
+        this.precio = precio,
+        this.tiempo = tiempo
+    }
+}
+
+const motor = new Work("60000", "8");
+const suspension = new Work ("5000", "2");
+const frenos = new Work ("3000", "1");
+const llantas = new Work ("40000", "2");
