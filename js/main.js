@@ -78,7 +78,7 @@ alert ("tu costo total es " + costoFinal); */
 
 class Usuario {
     constructor(nombre, apellido, email, marca, modelo, patente) {
-        this.nombre = nombre,
+            this.nombre = nombre,
             this.apellido = apellido,
             this.email = email,
             this.marca = marca,
@@ -87,12 +87,15 @@ class Usuario {
     }
 }
 
-const usuario1 = new Usuario(nombre = prompt("tu nombre?"),
+const usuario1 = new Usuario (
+
+    nombre = prompt("tu nombre?"),
     apellido = prompt("tu apellido?"),
     email = prompt("tu email"),
     marca = prompt("marca"),
     modelo = prompt("modelo"),
     patente = prompt("patente")
+
 )
 
 var pass = prompt("Creá tu contraseña:");
@@ -113,10 +116,9 @@ if (checkPass == pass) {
     alert("contraseña correcta. Podés ingresar!");
 }
 
-saludo();
+saludo(); 
 
-
-function campoVacio(cadena) {
+/* function campo(cadena) {
     if (cadena == "") {
         return true;
     } else {
@@ -126,7 +128,7 @@ function campoVacio(cadena) {
 
 while (ingreso) {
     nombre = prompt("ingresa tu nombre");
-    if (campoVacio(nombre)) {
+    if (campo(nombre)) {
         alert("No ingresaste tu nombre");
     } else {
         ingreso = false;
@@ -137,7 +139,7 @@ ingreso = true
 
 while (ingreso) {
     apellido = prompt("Ingresa tu apellido");
-    if (campoVacio(apellido)) {
+    if (campo(apellido)) {
         alert("No ingresaste tu apellido");
     } else {
         ingreso = false;
@@ -148,7 +150,7 @@ ingreso = true
 
 while (ingreso) {
     email = prompt("Ingrese su email");
-    if (campoVacio(email)) {
+    if (campo(email)) {
         alert("No ingresaste email");
     } else {
         ingreso = false;
@@ -159,7 +161,7 @@ ingreso = true
 
 while (ingreso) {
     marca = Number(prompt("Ingrese la marca de su vehículo"));
-    if (campoVacio(marca)) {
+    if (campo(marca)) {
         alert("No ingresó marca de su vehículo");
     } else {
         ingreso = false;
@@ -170,7 +172,7 @@ ingreso = true
 
 while (ingreso) {
     modelo = Number(prompt("Ingrese la marca de su vehículo"));
-    if (campoVacio(modelo)) {
+    if (campo(modelo)) {
         alert("No ingresó modelo de su vehículo");
     } else {
         ingreso = false;
@@ -181,14 +183,14 @@ ingreso = true
 
 while (ingreso) {
     patente = Number(prompt("Ingrese la patente de su vehículo"));
-    if (campoVacio(patente)) {
+    if (campo(patente)) {
         alert("No ingresó la patente de su vehículo");
     } else {
         ingreso = false;
     }
 }
 
-ingreso = true
+ingreso = true */
 
 const workToDo = [];
 
@@ -203,13 +205,11 @@ for (let i = 0; i < workToDo.length; i++) {
     alert("Seleccionaste " + workToDo[i]);
 }
 
-
-
 class Work {
     constructor(nombre, precio, tiempo) {
         this.nombre = nombre,
-            this.precio = precio,
-            this.tiempo = tiempo // son horas
+        this.precio = precio,
+        this.tiempo = tiempo // son horas
     }
 }
 
