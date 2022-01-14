@@ -11,6 +11,7 @@ let apellido;
 let marca;
 let modelo;
 let patente;
+let ingreso = true;
 
 function saludo() {
     alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
@@ -75,19 +76,18 @@ precioFinal(costo, total);
 alert ("tu costo total es " + costoFinal); */
 
 
-class Usuario{
+class Usuario {
     constructor(nombre, apellido, email, marca, modelo, patente) {
         this.nombre = nombre,
-        this.apellido = apellido,
-        this.email = email,
-        this.marca = marca,
-        this.modelo = modelo,
-        this.patente = patente
+            this.apellido = apellido,
+            this.email = email,
+            this.marca = marca,
+            this.modelo = modelo,
+            this.patente = patente
     }
 }
 
-const usuario1 = new Usuario 
-    (nombre = prompt("tu nombre?"),
+const usuario1 = new Usuario(nombre = prompt("tu nombre?"),
     apellido = prompt("tu apellido?"),
     email = prompt("tu email"),
     marca = prompt("marca"),
@@ -115,14 +115,106 @@ if (checkPass == pass) {
 
 saludo();
 
-class Work {
-    constructor (precio, tiempo) {
-        this.precio = precio,
-        this.tiempo = tiempo
+
+function campoVacio(cadena) {
+    if (cadena == "") {
+        return true;
+    } else {
+        return false;
     }
 }
 
-const motor = new Work("60000", "8");
-const suspension = new Work ("5000", "2");
-const frenos = new Work ("3000", "1");
-const llantas = new Work ("40000", "2");
+while (ingreso) {
+    nombre = prompt("ingresa tu nombre");
+    if (campoVacio(nombre)) {
+        alert("No ingresaste tu nombre");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+while (ingreso) {
+    apellido = prompt("Ingresa tu apellido");
+    if (campoVacio(apellido)) {
+        alert("No ingresaste tu apellido");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+while (ingreso) {
+    email = prompt("Ingrese su email");
+    if (campoVacio(email)) {
+        alert("No ingresaste email");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+while (ingreso) {
+    marca = Number(prompt("Ingrese la marca de su vehículo"));
+    if (campoVacio(marca)) {
+        alert("No ingresó marca de su vehículo");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+while (ingreso) {
+    modelo = Number(prompt("Ingrese la marca de su vehículo"));
+    if (campoVacio(modelo)) {
+        alert("No ingresó modelo de su vehículo");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+while (ingreso) {
+    patente = Number(prompt("Ingrese la patente de su vehículo"));
+    if (campoVacio(patente)) {
+        alert("No ingresó la patente de su vehículo");
+    } else {
+        ingreso = false;
+    }
+}
+
+ingreso = true
+
+const workToDo = [];
+
+let entry = prompt("Que trabajos vas a necesitar?");
+
+while (entry != "ESC") {
+    workToDo.push(entry);
+    entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
+}
+
+for (let i = 0; i < workToDo.length; i++) {
+    alert("Seleccionaste " + workToDo[i]);
+}
+
+
+
+class Work {
+    constructor(nombre, precio, tiempo) {
+        this.nombre = nombre,
+            this.precio = precio,
+            this.tiempo = tiempo // son horas
+    }
+}
+
+const trabajos = [];
+trabajos.push(new Work("Motor", "80000", "9"));
+trabajos.push(new Work("Frenos", "5000", "2"));
+trabajos.push(new Work("Suspensión", "2000", "3"));
+trabajos.push(new Work("Neumaticos", "60000", "2"));
