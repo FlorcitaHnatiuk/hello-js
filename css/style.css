@@ -37,10 +37,10 @@ body.dark {
   body.dark h1,
   body.dark h2 {
     color: yellow; }
-  body.dark p {
-    color: grey; }
+  body.dark p, body.dark span {
+    color: #EEEEEE; }
   body.dark .form-control {
-    background-color: black; }
+    background-color: #222831; }
 
 h1,
 h2,

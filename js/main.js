@@ -17,7 +17,6 @@ function saludo() {
     alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
 }
 
-
 /* let num1 = parseInt(prompt("Ingrese valor"));
 let num2 = parseInt(prompt("Ingrese un valor"));
 let operacion = prompt("ingrese tipo de operación");
@@ -116,7 +115,7 @@ if (checkPass == pass) {
     alert("contraseña correcta. Podés ingresar!");
 }
 
-saludo(); 
+saludo();
 
 /* function campo(cadena) {
     if (cadena == "") {
@@ -205,16 +204,26 @@ for (let i = 0; i < workToDo.length; i++) {
     alert("Seleccionaste " + workToDo[i]);
 }
 
-class Work {
-    constructor(nombre, precio, tiempo) {
-        this.nombre = nombre,
-        this.precio = precio,
-        this.tiempo = tiempo // son horas
-    }
-}
+workToDo.join(`+`);
 
-const trabajos = [];
-trabajos.push(new Work("Motor", "80000", "9"));
-trabajos.push(new Work("Frenos", "5000", "2"));
-trabajos.push(new Work("Suspensión", "2000", "3"));
-trabajos.push(new Work("Neumaticos", "60000", "2"));
+const servicios = [
+    {Nombre: "Llantas", Precio: "80000", Tiempo: 2},
+    {Nombre: "Neumáticos", Precio: "20000", Tiempo: 1},
+    {Nombre: "Frenos", Precio: "25000", Tiempo: 3},
+    {Nombre: "Alineación y balanceo", Precio: "10000", Tiempo: 5},
+    {Nombre: "Motor", Precio: "80000", Tiempo: 12},
+    {Nombre: "Service", Precio: "60000", Tiempo: 2}
+]
+// Ordenar de menor a mayor los precios
+const mayorMenor = servicios.sort((servicio1, servicio2) => {
+    return servicio1.Precio - servicio2.Precio
+})
+
+console.log(menorMayor);
+
+// Ordenar de mayor a menor los precios
+/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
+    return servicio2.Precio - servicio1.Precio
+})
+
+console.log(mayorMenor); */
