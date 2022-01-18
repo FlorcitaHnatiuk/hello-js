@@ -13,35 +13,6 @@ let modelo;
 let patente;
 let ingreso = true;
 
-function saludo() {
-    alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
-}
-
-/* let num1 = parseInt(prompt("Ingrese valor"));
-let num2 = parseInt(prompt("Ingrese un valor"));
-let operacion = prompt("ingrese tipo de operación");
-
-function calculate(num1, num2, operacion) {
-    switch (operacion) {
-        case "+":
-            return num1 + num2;
-            break;
-        case "-":
-            return num1 - num2;
-            break;
-        case "*":
-            return num1 * num2;
-            break;
-        case "/":
-            return num1 / num2;
-            break;
-        default:
-            return 0;
-            break;
-    }
-}
-alert(calculate(num1, num2, operacion));*/
-
 /* 
 let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
 let time = 0.15;
@@ -49,31 +20,7 @@ const howLong = (jobToDo, time) => jobToDo * time;
 alert(howLong(jobToDo, time)); */
 
 
-/*let costo = 0;
-let iva = 0.21;
-let total = 0;
-let costoFinal = 0;
-
-function valor() {
-    costo = parseInt(prompt("ingrese costo"));
-    return costo;
-}
-
-function costoGondola (costo, iva) {
-    total = costo * iva;
-    return total;
-}
-
-function precioFinal (costo, total) {
-    costoFinal = costo + total;
-    return costoFinal;
-}
-
-valor();
-costoGondola(costo, iva);
-precioFinal(costo, total);
-alert ("tu costo total es " + costoFinal); */
-
+// Creación de usuario 
 
 class Usuario {
     constructor(nombre, apellido, email, marca, modelo, patente) {
@@ -97,6 +44,8 @@ const usuario1 = new Usuario (
 
 )
 
+// Creación de contraseña
+
 var pass = prompt("Creá tu contraseña:");
 let checkPass = prompt("ingresá tu contraseña nuevamente");
 let intentos = 0;
@@ -115,7 +64,77 @@ if (checkPass == pass) {
     alert("contraseña correcta. Podés ingresar!");
 }
 
+// Saludos!! :)
+
+function saludo() {
+    alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
+}
 saludo();
+
+
+const workToDo = [];
+
+let entry = prompt("Que trabajos vas a necesitar?");
+
+while (entry != "ESC") {
+    workToDo.push(entry);
+    entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
+}
+
+for (let i = 0; i < workToDo.length; i++) {
+    alert("Seleccionaste " + workToDo[i]);
+}
+
+workToDo.join(`+`);
+
+// Creación de servicios => mandar a JSON?
+
+const servicios = [{
+        Nombre: "Llantas",
+        Precio: "80000",
+        Tiempo: 2
+    },
+    {
+        Nombre: "Neumáticos",
+        Precio: "20000",
+        Tiempo: 1
+    },
+    {
+        Nombre: "Frenos",
+        Precio: "25000",
+        Tiempo: 3
+    },
+    {
+        Nombre: "Alineación y balanceo",
+        Precio: "10000",
+        Tiempo: 5
+    },
+    {
+        Nombre: "Motor",
+        Precio: "80000",
+        Tiempo: 12
+    },
+    {
+        Nombre: "Service",
+        Precio: "60000",
+        Tiempo: 2
+    }
+]
+// Ordenar de menor a mayor los precios de los servicios
+
+const mayorMenor = servicios.sort((servicio1, servicio2) => {
+    return servicio1.Precio - servicio2.Precio
+})
+
+console.log(menorMayor);
+
+// Ordenar de mayor a menor los precios
+/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
+    return servicio2.Precio - servicio1.Precio
+})
+
+console.log(mayorMenor); */
+
 
 /* function campo(cadena) {
     if (cadena == "") {
@@ -190,40 +209,3 @@ while (ingreso) {
 }
 
 ingreso = true */
-
-const workToDo = [];
-
-let entry = prompt("Que trabajos vas a necesitar?");
-
-while (entry != "ESC") {
-    workToDo.push(entry);
-    entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
-}
-
-for (let i = 0; i < workToDo.length; i++) {
-    alert("Seleccionaste " + workToDo[i]);
-}
-
-workToDo.join(`+`);
-
-const servicios = [
-    {Nombre: "Llantas", Precio: "80000", Tiempo: 2},
-    {Nombre: "Neumáticos", Precio: "20000", Tiempo: 1},
-    {Nombre: "Frenos", Precio: "25000", Tiempo: 3},
-    {Nombre: "Alineación y balanceo", Precio: "10000", Tiempo: 5},
-    {Nombre: "Motor", Precio: "80000", Tiempo: 12},
-    {Nombre: "Service", Precio: "60000", Tiempo: 2}
-]
-// Ordenar de menor a mayor los precios
-const mayorMenor = servicios.sort((servicio1, servicio2) => {
-    return servicio1.Precio - servicio2.Precio
-})
-
-console.log(menorMayor);
-
-// Ordenar de mayor a menor los precios
-/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
-    return servicio2.Precio - servicio1.Precio
-})
-
-console.log(mayorMenor); */
