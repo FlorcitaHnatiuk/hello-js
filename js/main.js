@@ -1,3 +1,29 @@
+//USUARIO => session se pierde, local persiste. 
+localStorage.setItem('nombre', 'Florencia');
+localStorage.setItem('apellido', 'Hnatiuk');
+localStorage.setItem('marca', 'Ford');
+localStorage.setItem('modelo', 'Ka');
+localStorage.setItem('patente', 'AA181GI');
+
+let nombre = localStorage.getItem('nombre');
+let apellido = localStorage.getItem('apellido');
+let marca = localStorage.getItem('marca');
+let modelo = localStorage.getItem('modelo');
+let patente = localStorage.getItem('patente');
+console.log(nombre);
+console.log(apellido);
+console.log(marca);
+console.log(modelo);
+console.log(patente);
+
+for (let i = 0; i < localStorage.length; i++) {
+    let clave = localStorage.key(i);
+    console.log("nombre: " + clave);
+    console.log("info: " + localStorage.getItem(clave));
+} 
+
+
+//NIGHT AND DAY
 const switchButton = document.getElementById('switch');
 
 switchButton.addEventListener('click', () => {
@@ -6,12 +32,14 @@ switchButton.addEventListener('click', () => {
 });
 
 let espacio = " ";
-let nombre;
-let apellido;
-let marca;
-let modelo;
-let patente;
-let ingreso = true;
+// let nombre;
+// let apellido;
+// let marca;
+// let modelo;
+// let patente;
+let ingreso = true; 
+
+
 
 /* 
 let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
@@ -35,18 +63,37 @@ class Usuario {
 
 const usuario1 = new Usuario (
 
-    nombre = prompt("tu nombre?"),
-    apellido = prompt("tu apellido?"),
-    email = prompt("tu email"),
-    marca = prompt("marca"),
-    modelo = prompt("modelo"),
-    patente = prompt("patente")
-
+    nombre = prompt("Ingresá tu nombre"),
+    apellido = prompt("Ingresá tu apellido?"),
+    email = prompt("Ingresá tu email").toLowerCase(),
+    marca = prompt("Cuál es la marca de tu auto?"),
+    modelo = prompt("Y el modelo?"),
+    patente = prompt("Por último, la patente!").toUpperCase()
+    
 )
+
+console.log(`${patente} ${patente.length}`);
+
+
+function añoPatente() {
+    if (patente.length == 6) {
+        alert("tu patente es previa al 2016")
+    } else if (patente.length == 7) {
+        alert("tu patente es posterior al 2016")
+    }
+} 
+
+añoPatente();
+
+
+function saludo() {
+    alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
+}
+saludo(); 
 
 // Creación de contraseña
 
-var pass = prompt("Creá tu contraseña:");
+/* var pass = prompt("Creá tu contraseña:");
 let checkPass = prompt("ingresá tu contraseña nuevamente");
 let intentos = 0;
 
@@ -62,14 +109,11 @@ while (checkPass != pass) {
 }
 if (checkPass == pass) {
     alert("contraseña correcta. Podés ingresar!");
-}
+} */
 
 // Saludos!! :)
 
-function saludo() {
-    alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
-}
-saludo();
+
 
 
 const workToDo = [];
@@ -77,19 +121,22 @@ const workToDo = [];
 let entry = prompt("Que trabajos vas a necesitar?");
 
 while (entry != "ESC") {
-    workToDo.push(entry);
+
     entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
+    
+    workToDo.push(entry);
+
 }
 
 for (let i = 0; i < workToDo.length; i++) {
     alert("Seleccionaste " + workToDo[i]);
 }
 
-workToDo.join(`+`);
+workToDo.join(`+`); 
 
 // Creación de servicios => mandar a JSON?
 
-const servicios = [{
+/* const servicios = [{
         Nombre: "Llantas",
         Precio: "80000",
         Tiempo: 2
@@ -119,14 +166,14 @@ const servicios = [{
         Precio: "60000",
         Tiempo: 2
     }
-]
+] */
 // Ordenar de menor a mayor los precios de los servicios
 
-const mayorMenor = servicios.sort((servicio1, servicio2) => {
+/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
     return servicio1.Precio - servicio2.Precio
 })
 
-console.log(menorMayor);
+console.log(menorMayor); */ 
 
 // Ordenar de mayor a menor los precios
 /* const mayorMenor = servicios.sort((servicio1, servicio2) => {
@@ -136,76 +183,3 @@ console.log(menorMayor);
 console.log(mayorMenor); */
 
 
-/* function campo(cadena) {
-    if (cadena == "") {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-while (ingreso) {
-    nombre = prompt("ingresa tu nombre");
-    if (campo(nombre)) {
-        alert("No ingresaste tu nombre");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true
-
-while (ingreso) {
-    apellido = prompt("Ingresa tu apellido");
-    if (campo(apellido)) {
-        alert("No ingresaste tu apellido");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true
-
-while (ingreso) {
-    email = prompt("Ingrese su email");
-    if (campo(email)) {
-        alert("No ingresaste email");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true
-
-while (ingreso) {
-    marca = Number(prompt("Ingrese la marca de su vehículo"));
-    if (campo(marca)) {
-        alert("No ingresó marca de su vehículo");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true
-
-while (ingreso) {
-    modelo = Number(prompt("Ingrese la marca de su vehículo"));
-    if (campo(modelo)) {
-        alert("No ingresó modelo de su vehículo");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true
-
-while (ingreso) {
-    patente = Number(prompt("Ingrese la patente de su vehículo"));
-    if (campo(patente)) {
-        alert("No ingresó la patente de su vehículo");
-    } else {
-        ingreso = false;
-    }
-}
-
-ingreso = true */
