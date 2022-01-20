@@ -50,46 +50,44 @@
         </div>
     </nav>
 
-    <main>
+    <main class="container-fluid form-signin">
         <h1>tu taller</h1>
 
-        <div>
             <div class="usuario m-5">
-                <section id="formulario" class="text-center">
-                    <div>
-                        <label for="exampleFormControlInput1" class="form-label">Nombre y apellido</label>
-                        <input type="text" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="Nombre Apellido" />
+                <section id="formulario">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
+                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
                     </div>
 
-                    <div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="apellido" placeholder="Apellido" />
+                        <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" />
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="name@example.com" />
                     </div>
 
-                    <div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="marca" placeholder="Marca" />
                         <label for="exampleFormControlInput1" class="form-label">Marca</label>
-                        <input type="text" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="Marca" />
                     </div>
 
-                    <div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="modelo" placeholder="Modelo de auto" />
                         <label for="exampleFormControlInput1" class="form-label">Modelo</label>
-                        <input type="text" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="Modelo de auto" />
                     </div>
 
-                    <div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="patente" placeholder="Patente" />
                         <label for="exampleFormControlInput1" class="form-label">Patente</label>
-                        <input type="text" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="Patente" />
                     </div>
 
-                    <div>
-                        <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-                        <input type="text" class="form-control text-center" id="exampleFormControlInput1"
-                            placeholder="Contraseña" />
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" />
+                        <label for="password" class="form-label">Contraseña</label>
                     </div>
                 </section>
             </div>

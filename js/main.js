@@ -1,3 +1,4 @@
+
 //USUARIO => session se pierde, local persiste. 
 localStorage.setItem('nombre', 'Florencia');
 localStorage.setItem('apellido', 'Hnatiuk');
@@ -40,6 +41,7 @@ let espacio = " ";
 let ingreso = true; 
 
 
+// CREAR UNA FUNCION QUE DIGA TIEMPO ESTIMATIVO QUE LLEVARÁ EL TRABAJO SEGUN SERVICIOS SELECCIONADOS
 
 /* 
 let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
@@ -48,7 +50,7 @@ const howLong = (jobToDo, time) => jobToDo * time;
 alert(howLong(jobToDo, time)); */
 
 
-// Creación de usuario 
+// CREACION DE USUARIO
 
 class Usuario {
     constructor(nombre, apellido, email, marca, modelo, patente) {
@@ -72,8 +74,8 @@ const usuario1 = new Usuario (
     
 )
 
+// PATENTE VIEJA O NUEVA?
 console.log(`${patente} ${patente.length}`);
-
 
 function añoPatente() {
     if (patente.length == 6) {
@@ -82,16 +84,15 @@ function añoPatente() {
         alert("tu patente es posterior al 2016")
     }
 } 
-
 añoPatente();
 
-
+// HELLO HELLO!
 function saludo() {
     alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
 }
 saludo(); 
 
-// Creación de contraseña
+// CONTRASEÑA CON VALIDACIÓN
 
 /* var pass = prompt("Creá tu contraseña:");
 let checkPass = prompt("ingresá tu contraseña nuevamente");
@@ -111,21 +112,14 @@ if (checkPass == pass) {
     alert("contraseña correcta. Podés ingresar!");
 } */
 
-// Saludos!! :)
 
-
-
+// SELECCIONAR TRABAJOS
 
 const workToDo = [];
-
 let entry = prompt("Que trabajos vas a necesitar?");
-
 while (entry != "ESC") {
-
     entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
-    
     workToDo.push(entry);
-
 }
 
 for (let i = 0; i < workToDo.length; i++) {
@@ -136,44 +130,21 @@ workToDo.join(`+`);
 
 // Creación de servicios => mandar a JSON?
 
-/* const servicios = [{
-        Nombre: "Llantas",
-        Precio: "80000",
-        Tiempo: 2
-    },
-    {
-        Nombre: "Neumáticos",
-        Precio: "20000",
-        Tiempo: 1
-    },
-    {
-        Nombre: "Frenos",
-        Precio: "25000",
-        Tiempo: 3
-    },
-    {
-        Nombre: "Alineación y balanceo",
-        Precio: "10000",
-        Tiempo: 5
-    },
-    {
-        Nombre: "Motor",
-        Precio: "80000",
-        Tiempo: 12
-    },
-    {
-        Nombre: "Service",
-        Precio: "60000",
-        Tiempo: 2
-    }
-] */
+const servicios = [
+    {id: 1, Nombre: "Llantas", Precio: "80000", Tiempo: 2},
+    {id: 2, Nombre: "Neumáticos", Precio: "20000", Tiempo: 1},
+    {id: 3, Nombre: "Frenos", Precio: "25000",Tiempo: 3},
+    {id: 4, Nombre: "Alineación y balanceo", Precio: "10000",Tiempo: 5},
+    {id: 5, Nombre: "Motor", Precio: "80000", Tiempo: 12},
+    {id: 6, Nombre: "Service", Precio: "60000",Tiempo: 2}
+] 
+
 // Ordenar de menor a mayor los precios de los servicios
 
-/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
+const menorMayor = servicios.sort((servicio1, servicio2) => {
     return servicio1.Precio - servicio2.Precio
 })
-
-console.log(menorMayor); */ 
+console.log(menorMayor); 
 
 // Ordenar de mayor a menor los precios
 /* const mayorMenor = servicios.sort((servicio1, servicio2) => {
