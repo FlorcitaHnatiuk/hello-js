@@ -1,27 +1,44 @@
 
-//USUARIO => session se pierde, local persiste. 
-localStorage.setItem('nombre', 'Florencia');
-localStorage.setItem('apellido', 'Hnatiuk');
-localStorage.setItem('marca', 'Ford');
-localStorage.setItem('modelo', 'Ka');
-localStorage.setItem('patente', 'AA181GI');
+function saveUser(storage) {
+    let nombre = document.getElementById('nombre').value;
+    let apellido = document.getElementById('apellido').value;
+    let email = document.getElementById('email').value;
+    let marca = document.getElementById('marca').value;
+    let modelo = document.getElementById('modelo').value;
+    let patente = document.getElementById('patente').value;
+    let password = document.getElementById('password').value;
+    const usuario = {
+        'nombre': nombre,
+        'apellido': apellido,
+        'email': email,
+        'marca': marca,
+        'modelo': modelo,
+        'patente': patente,
+        'password': password
+    };
+    console.log(usuario);
+    if (storage === "sessionStorage") {
+        sessionStorage.setItem("user", JSON.stringify(usuario));
+    }
+    if (storage === "localStorage") {
+        localStorage.setItem("user", JSON.stringify(usuario))
+    }
+}
 
-let nombre = localStorage.getItem('nombre');
-let apellido = localStorage.getItem('apellido');
-let marca = localStorage.getItem('marca');
-let modelo = localStorage.getItem('modelo');
-let patente = localStorage.getItem('patente');
-console.log(nombre);
-console.log(apellido);
-console.log(marca);
-console.log(modelo);
-console.log(patente);
+function deleteUser(storage) {
+    storage.clear();
+}
 
-for (let i = 0; i < localStorage.length; i++) {
-    let clave = localStorage.key(i);
-    console.log("nombre: " + clave);
-    console.log("info: " + localStorage.getItem(clave));
-} 
+let remember = document.getElementById('remember');
+
+btnLogin.addEventListener("click", () => {
+    if(remember.checked) {
+        saveUser("localStorage");
+    } else {
+        saveUser("sessionStorage");
+    }
+});
+
 
 
 //NIGHT AND DAY
@@ -49,33 +66,9 @@ const howLong = (jobToDo, time) => jobToDo * time;
 alert(howLong(jobToDo, time)); */
 
 
-// CREACION DE USUARIO
-
-class Usuario {
-    constructor(nombre, apellido, email, marca, modelo, patente) {
-            this.nombre = nombre,
-            this.apellido = apellido,
-            this.email = email,
-            this.marca = marca,
-            this.modelo = modelo,
-            this.patente = patente
-    }
-}
-
-const usuario1 = new Usuario (
-
-    nombre = prompt("Ingresá tu nombre"),
-    apellido = prompt("Ingresá tu apellido?"),
-    email = prompt("Ingresá tu email").toLowerCase(),
-    marca = prompt("Cuál es la marca de tu auto?"),
-    modelo = prompt("Y el modelo?"),
-    patente = prompt("Por último, la patente!").toUpperCase()
-    
-)
-
 // PATENTE VIEJA O NUEVA?
 
-console.log(`${patente} ${patente.length}`);
+/* console.log(`${patente} ${patente.length}`);
 
 function añoPatente() {
     if (patente.length == 6) {
@@ -84,14 +77,14 @@ function añoPatente() {
         alert("tu patente es posterior al 2016")
     }
 } 
-añoPatente();
+añoPatente(); */
 
 // HELLO HELLO!
 
-function saludo() {
+/* function saludo() {
     alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
 }
-saludo(); 
+saludo();  */
 
 // CONTRASEÑA CON VALIDACIÓN
 
@@ -116,7 +109,7 @@ if (checkPass == pass) {
 
 // SELECCIONAR TRABAJOS
 
-const workToDo = [];
+/* const workToDo = [];
 let entry = prompt("Que trabajos vas a necesitar?");
 while (entry != "ESC") {
     entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
@@ -127,7 +120,7 @@ for (let i = 0; i < workToDo.length; i++) {
     alert("Seleccionaste " + workToDo[i]);
 }
 
-workToDo.join(`+`); 
+workToDo.join(`+`);  */
 
 // Creación de servicios => mandar a JSON?
 
@@ -163,10 +156,4 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
 })
 console.log(menorMayor); 
 
-// Ordenar de mayor a menor los precios
-/* const mayorMenor = servicios.sort((servicio1, servicio2) => {
-    return servicio2.Precio - servicio1.Precio
-})
-
-console.log(mayorMenor); */
 
