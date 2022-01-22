@@ -33,13 +33,12 @@ switchButton.addEventListener('click', () => {
 });
 
 let espacio = " ";
-// let nombre;
-// let apellido;
-// let marca;
-// let modelo;
-// let patente;
 let ingreso = true; 
 
+// Cambiar titulo dependiendo del usuario ingresado
+
+const element = document.getElementById("titulo")
+element.innerHTML = "Bienvenido a nuestra web :)";
 
 // CREAR UNA FUNCION QUE DIGA TIEMPO ESTIMATIVO QUE LLEVARÁ EL TRABAJO SEGUN SERVICIOS SELECCIONADOS
 
@@ -75,6 +74,7 @@ const usuario1 = new Usuario (
 )
 
 // PATENTE VIEJA O NUEVA?
+
 console.log(`${patente} ${patente.length}`);
 
 function añoPatente() {
@@ -87,6 +87,7 @@ function añoPatente() {
 añoPatente();
 
 // HELLO HELLO!
+
 function saludo() {
     alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
 }
@@ -131,18 +132,34 @@ workToDo.join(`+`);
 // Creación de servicios => mandar a JSON?
 
 const servicios = [
-    {id: 1, Nombre: "Llantas", Precio: "80000", Tiempo: 2},
-    {id: 2, Nombre: "Neumáticos", Precio: "20000", Tiempo: 1},
-    {id: 3, Nombre: "Frenos", Precio: "25000",Tiempo: 3},
-    {id: 4, Nombre: "Alineación y balanceo", Precio: "10000",Tiempo: 5},
-    {id: 5, Nombre: "Motor", Precio: "80000", Tiempo: 12},
-    {id: 6, Nombre: "Service", Precio: "60000",Tiempo: 2}
-] 
+    {id: 1, nombre: "Llantas",      precio: 80000,  tiempo: 2},
+    {id: 2, nombre: "Neumáticos",   precio: 20000,  tiempo: 1},
+    {id: 3, nombre: "Frenos",       precio: 25000 , tiempo: 3},
+    {id: 4, nombre: "Alineación",   precio: 10000,  tiempo: 5},
+    {id: 5, nombre: "Motor",        precio: 80000,  tiempo: 12},
+    {id: 6, nombre: "Service",      precio: 60000,  tiempo: 2},
+    {id: 7, nombre: "Balanceo",     precio: 2000,   tiempo: 1}
+]
+
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+// ALMACENAR SERVICIOS 
+
+for (const nombre of servicios) {
+    guardarLocal(nombre.id, JSON.stringify(nombre));
+}
+
+// ALMACENAR ARRAY COMPLETO
+
+guardarLocal("listaServicios", JSON.stringify(servicios));
+
+let serviciosString = localStorage.getItem('listaServicios');
+let serviciosParseados = JSON.parse(serviciosString);
 
 // Ordenar de menor a mayor los precios de los servicios
 
 const menorMayor = servicios.sort((servicio1, servicio2) => {
-    return servicio1.Precio - servicio2.Precio
+    return servicio1.precio - servicio2.precio
 })
 console.log(menorMayor); 
 
@@ -152,5 +169,4 @@ console.log(menorMayor);
 })
 
 console.log(mayorMenor); */
-
 
