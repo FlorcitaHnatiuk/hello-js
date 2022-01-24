@@ -40,7 +40,6 @@ btnLogin.addEventListener("click", () => {
 });
 
 
-
 //NIGHT AND DAY
 const switchButton = document.getElementById('switch');
 
@@ -75,25 +74,29 @@ añoPatente();
 // Creación de servicios => mandar a JSON?
 
 const servicios = [
-    {id: 1, nombre: "Llantas",      precio: 80000,  tiempo: 2},
-    {id: 2, nombre: "Neumáticos",   precio: 20000,  tiempo: 1},
-    {id: 3, nombre: "Frenos",       precio: 25000 , tiempo: 3},
-    {id: 4, nombre: "Alineación",   precio: 10000,  tiempo: 5},
-    {id: 5, nombre: "Motor",        precio: 80000,  tiempo: 12},
-    {id: 6, nombre: "Service",      precio: 60000,  tiempo: 2},
-    {id: 7, nombre: "Balanceo",     precio: 2000,   tiempo: 1},
-    {id: 8, nombre: "Amortiguadores",       precio: 2000,   tiempo: 1},
-    {id: 9, nombre: "Pastillas",     precio: 2000,   tiempo: 1},
-    {id: 10, nombre: "Bulones",     precio: 2000,   tiempo: 1}
+    {id: 1, nombre: "Llantas",          precio: 80000,  tiempo: 2},
+    {id: 2, nombre: "Neumáticos",       precio: 20000,  tiempo: 1},
+    {id: 3, nombre: "Frenos",           precio: 25000 , tiempo: 3},
+    {id: 4, nombre: "Alineación",       precio: 10000,  tiempo: 5},
+    {id: 5, nombre: "Motor",            precio: 80000,  tiempo: 12},
+    {id: 6, nombre: "Service",          precio: 60000,  tiempo: 2},
+    {id: 7, nombre: "Balanceo",         precio: 2000,   tiempo: 1},
+    {id: 8, nombre: "Amortiguadores",   precio: 2000,   tiempo: 1},
+    {id: 9, nombre: "Pastillas",        precio: 2000,   tiempo: 1},
+    {id: 10, nombre: "Bulones",         precio: 2000,   tiempo: 1}
 ]
 
 for (const servicio of servicios) {
-    let container = document.createElement("div");
+    //let container = document.createElement("div");
+
+    const container = document.createElement('div');
+    container.classList.add('hola');
+    console.log(element.className);
 
     container.innerHTML = 
     `
-    <div class="text-center row row-cols-1 row-cols-md-6 g-2">
-        <div class="cart-items">
+    <div class="text-center row">
+        <div class="cart-items row-cols-12 row-cols-md-6 g-2 ">
                 <div class="cart-row">
                     <div class="cart-item cart-column">
                         <span class="cart-item-title">${servicio.nombre}</span>

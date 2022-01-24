@@ -138,6 +138,16 @@ div#text {
     justify-content: center;
 }
 
+/* .cart-items {
+    @include padding;       
+    @include flexbox;
+    @include center;
+    .cart-row {
+        @include inline-flex;
+    }
+} */
+
+
 footer {
     @include padding;
     ul {             

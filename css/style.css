@@ -107,6 +107,14 @@ div#text {
   display: flex;
   justify-content: center; }
 
+/* .cart-items {
+    @include padding;       
+    @include flexbox;
+    @include center;
+    .cart-row {
+        @include inline-flex;
+    }
+} */
 footer {
   padding: 1.5% 5%; }
   footer ul {
