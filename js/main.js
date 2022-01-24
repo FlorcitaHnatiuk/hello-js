@@ -59,16 +59,9 @@ element.innerHTML = "Bienvenido a nuestra web :)";
 
 // CREAR UNA FUNCION QUE DIGA TIEMPO ESTIMATIVO QUE LLEVARÁ EL TRABAJO SEGUN SERVICIOS SELECCIONADOS
 
-/* 
-let jobToDo = parseInt(prompt("cuantas cosas le querés hacer a tu auto?"));
-let time = 0.15;
-const howLong = (jobToDo, time) => jobToDo * time;
-alert(howLong(jobToDo, time)); */
-
-
 // PATENTE VIEJA O NUEVA?
 
-/* console.log(`${patente} ${patente.length}`);
+console.log(`${patente} ${patente.length}`);
 
 function añoPatente() {
     if (patente.length == 6) {
@@ -77,50 +70,7 @@ function añoPatente() {
         alert("tu patente es posterior al 2016")
     }
 } 
-añoPatente(); */
-
-// HELLO HELLO!
-
-/* function saludo() {
-    alert(`Hola ${nombre}${espacio}${apellido}. Gracias por sumarte!. Tu ${marca}${espacio}${modelo} patente ${patente}, ya tiene su usuario creado correctamente.`);
-}
-saludo();  */
-
-// CONTRASEÑA CON VALIDACIÓN
-
-/* var pass = prompt("Creá tu contraseña:");
-let checkPass = prompt("ingresá tu contraseña nuevamente");
-let intentos = 0;
-
-while (checkPass != pass) {
-    if (intentos <= 3) {
-        alert = prompt("contraseña incorrecta, ingresala nuevamente");
-        checkPass = prompt("contraseña incorrecta, ingresala nuevamente");
-    } else if (intentos > 3) {
-        alert(`${nombre}${espacio}${apellido} ya no tenés mas intentos. Recarga la web!`);
-        break;
-    }
-    intentos++;
-}
-if (checkPass == pass) {
-    alert("contraseña correcta. Podés ingresar!");
-} */
-
-
-// SELECCIONAR TRABAJOS
-
-/* const workToDo = [];
-let entry = prompt("Que trabajos vas a necesitar?");
-while (entry != "ESC") {
-    entry = prompt("Que trabajos vas a necesitar? Escribí ESC si ya tiene todos los servicios seleccionados.");
-    workToDo.push(entry);
-}
-
-for (let i = 0; i < workToDo.length; i++) {
-    alert("Seleccionaste " + workToDo[i]);
-}
-
-workToDo.join(`+`);  */
+añoPatente(); 
 
 // Creación de servicios => mandar a JSON?
 
@@ -131,8 +81,23 @@ const servicios = [
     {id: 4, nombre: "Alineación",   precio: 10000,  tiempo: 5},
     {id: 5, nombre: "Motor",        precio: 80000,  tiempo: 12},
     {id: 6, nombre: "Service",      precio: 60000,  tiempo: 2},
-    {id: 7, nombre: "Balanceo",     precio: 2000,   tiempo: 1}
+    {id: 7, nombre: "Balanceo",     precio: 2000,   tiempo: 1},
+    {id: 8, nombre: "Amortiguadores",       precio: 2000,   tiempo: 1},
+    {id: 9, nombre: "Pastillas",     precio: 2000,   tiempo: 1},
+    {id: 10, nombre: "Bulones",     precio: 2000,   tiempo: 1}
 ]
+
+for (const servicio of servicios) {
+    let container = document.createElement("div");
+
+    container.innerHTML = 
+    `
+    <p> ${servicio.nombre}</p>
+    <b> $${servicio.precio}</b>
+    `;
+
+    document.body.appendChild(container);
+}
 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
@@ -154,6 +119,7 @@ let serviciosParseados = JSON.parse(serviciosString);
 const menorMayor = servicios.sort((servicio1, servicio2) => {
     return servicio1.precio - servicio2.precio
 })
-console.log(menorMayor); 
+console.log(menorMayor);
+
 
 
