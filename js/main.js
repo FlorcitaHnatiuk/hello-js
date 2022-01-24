@@ -92,8 +92,19 @@ for (const servicio of servicios) {
 
     container.innerHTML = 
     `
-    <p> ${servicio.nombre}</p>
-    <b> $${servicio.precio}</b>
+    <div class="text-center row row-cols-1 row-cols-md-6 g-2">
+        <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <span class="cart-item-title">${servicio.nombre}</span>
+                    </div>
+                    <span class="cart-price cart-column">${servicio.precio}</span>
+                    <div class="cart-quantity cart-column">
+                        <button type="button" class="btn btn-success">+</button>
+                    </div>
+                </div>
+            </div>
+    </div>
     `;
 
     document.body.appendChild(container);
