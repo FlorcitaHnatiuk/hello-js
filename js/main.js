@@ -83,20 +83,22 @@ const servicios = [
     {id: 7, nombre: "Balanceo",         precio: 2000,   tiempo: 1},
     {id: 8, nombre: "Amortiguadores",   precio: 2000,   tiempo: 1},
     {id: 9, nombre: "Pastillas",        precio: 2000,   tiempo: 1},
-    {id: 10, nombre: "Bulones",         precio: 2000,   tiempo: 1}
+    {id: 10, nombre: "Bulones",         precio: 2000,   tiempo: 1},
+    {id: 11, nombre: "Bujes",           precio: 2000,   tiempo: 1},
 ]
 
+// let container = document.createElement("div");
+
 for (const servicio of servicios) {
-    //let container = document.createElement("div");
 
     const container = document.createElement('div');
-    container.classList.add('hola');
+    container.classList.add('blocky');
     console.log(element.className);
 
-    container.innerHTML = 
-    `
+    container.innerHTML = `
+
     <div class="text-center row">
-        <div class="cart-items row-cols-12 row-cols-md-6 g-2 ">
+        <div class="cart-items row-cols-md-6 g-2 ">
                 <div class="cart-row">
                     <div class="cart-item cart-column">
                         <span class="cart-item-title">${servicio.nombre}</span>
@@ -108,9 +110,12 @@ for (const servicio of servicios) {
                 </div>
             </div>
     </div>
+
     `;
 
-    document.body.appendChild(container);
+    //document.body.appendChild(container);
+
+    document.getElementById("serviceCart").appendChild(container);
 }
 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };

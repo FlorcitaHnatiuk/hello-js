@@ -138,14 +138,17 @@ div#text {
     justify-content: center;
 }
 
-/* .cart-items {
-    @include padding;       
-    @include flexbox;
-    @include center;
-    .cart-row {
-        @include inline-flex;
-    }
-} */
+
+
+#serviceCart {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .blocky {
+        @include padding;
+    }   
+}
+
 
 
 footer {
