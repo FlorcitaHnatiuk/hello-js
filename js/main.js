@@ -1,11 +1,13 @@
 
+alert ("Hola! los valores y tiempo que vas a ver son estimativos :)");
+
 function saveUser(storage) {
     let nombre = document.getElementById('nombre').value;
     let apellido = document.getElementById('apellido').value;
     let email = document.getElementById('email').value;
     let marca = document.getElementById('marca').value;
     let modelo = document.getElementById('modelo').value;
-    let patente = document.getElementById('patente').value;
+    let patente = document.getElementById('patente').value.toUpperCase();
     let password = document.getElementById('password').value;
     const usuario = {
         'nombre': nombre,
@@ -24,6 +26,14 @@ function saveUser(storage) {
         localStorage.setItem("user", JSON.stringify(usuario))
     }
 }
+
+let button = document.getElementById("btnLogin");
+button.addEventListener("click", clicked);
+
+function clicked(){
+    alert(`Hola${espacio}${document.getElementById('nombre').value}`);
+}
+
 
 function deleteUser(storage) {
     storage.clear();
@@ -85,9 +95,9 @@ const servicios = [
     {id: 9, nombre: "Pastillas",        precio: 2000,   tiempo: 1},
     {id: 10, nombre: "Bulones",         precio: 2000,   tiempo: 1},
     {id: 11, nombre: "Bujes",           precio: 2000,   tiempo: 1},
+    {id: 12, nombre: "Cremallera",      precio: 80000,  tiempo: 2},
+    {id: 13, nombre: "Bieletas",        precio: 80000,  tiempo: 2},
 ]
-
-// let container = document.createElement("div");
 
 for (const servicio of servicios) {
 
@@ -103,7 +113,7 @@ for (const servicio of servicios) {
                     <div class="cart-item cart-column">
                         <span class="cart-item-title">${servicio.nombre}</span>
                     </div>
-                    <span class="cart-price cart-column">${servicio.precio}</span>
+                    <span class="cart-price cart-column">$${servicio.precio}</span>
                     <div class="cart-quantity cart-column">
                         <button type="button" class="btn btn-success">+</button>
                     </div>

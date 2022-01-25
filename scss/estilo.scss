@@ -138,8 +138,6 @@ div#text {
     justify-content: center;
 }
 
-
-
 #serviceCart {
     display: flex;
     justify-content: space-between;
@@ -148,8 +146,6 @@ div#text {
         @include padding;
     }   
 }
-
-
 
 footer {
     @include padding;
