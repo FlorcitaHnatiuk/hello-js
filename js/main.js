@@ -1,5 +1,5 @@
 
-alert ("Hola! los valores y tiempo que vas a ver son estimativos :)");
+alert ("Hola! los valores y tiempo que vas a ver son estimativos :). Cualquier parecido con la realidad es pura coincidencia.");
 
 function saveUser(storage) {
     let nombre = document.getElementById('nombre').value;
@@ -27,11 +27,14 @@ function saveUser(storage) {
     }
 }
 
+//Hello hello
+
 let button = document.getElementById("btnLogin");
 button.addEventListener("click", clicked);
 
 function clicked(){
-    alert(`Hola${espacio}${document.getElementById('nombre').value}`);
+    alert(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu 
+    ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
 }
 
 
@@ -49,6 +52,7 @@ btnLogin.addEventListener("click", () => {
     }
 });
 
+//SHOW AND HIDE PASSWORD
 
 //NIGHT AND DAY
 const switchButton = document.getElementById('switch');
@@ -59,7 +63,6 @@ switchButton.addEventListener('click', () => {
 });
 
 let espacio = " ";
-let ingreso = true; 
 
 // Cambiar titulo dependiendo del usuario ingresado
 
@@ -115,7 +118,7 @@ for (const servicio of servicios) {
                     </div>
                     <span class="cart-price cart-column">$${servicio.precio}</span>
                     <div class="cart-quantity cart-column">
-                        <button type="button" class="btn btn-success">+</button>
+                        <button type="button" class="addToCart btn btn-success">+</button>
                     </div>
                 </div>
             </div>
@@ -123,14 +126,12 @@ for (const servicio of servicios) {
 
     `;
 
-    //document.body.appendChild(container);
-
     document.getElementById("serviceCart").appendChild(container);
 }
 
-const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
 // ALMACENAR SERVICIOS 
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
 
 for (const nombre of servicios) {
     guardarLocal(nombre.id, JSON.stringify(nombre));
@@ -141,14 +142,14 @@ for (const nombre of servicios) {
 guardarLocal("listaServicios", JSON.stringify(servicios));
 
 let serviciosString = localStorage.getItem('listaServicios');
-let serviciosParseados = JSON.parse(serviciosString);
+let serviciosParseados = JSON.parse(serviciosString); 
 
 // Ordenar de menor a mayor los precios de los servicios
 
 const menorMayor = servicios.sort((servicio1, servicio2) => {
     return servicio1.precio - servicio2.precio
 })
-console.log(menorMayor);
+console.log(menorMayor); 
 
 
 
