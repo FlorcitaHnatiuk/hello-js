@@ -1,3 +1,6 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+});
 
 alert ("Hola! los valores y tiempo que vas a ver son estimativos :). Cualquier parecido con la realidad es pura coincidencia.");
 
@@ -106,23 +109,18 @@ for (const servicio of servicios) {
 
     const container = document.createElement('div');
     container.classList.add('blocky');
-    console.log(element.className);
+    //console.log(element.className);
 
     container.innerHTML = `
 
-    <div class="text-center row">
-        <div class="cart-items row-cols-md-6 g-2 ">
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <span class="cart-item-title">${servicio.nombre}</span>
-                    </div>
-                    <span class="cart-price cart-column">$${servicio.precio}</span>
-                    <div class="cart-quantity cart-column">
-                        <button type="button" class="addToCart btn btn-success">+</button>
+    <div class="shop-items">
+        <div class="shop-item">
+            <span class="shop-item-title">${servicio.nombre}</span>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$${servicio.precio}</span>
+                        <button class="btn btn-primary shop-item-button" type="button">+</button>
                     </div>
                 </div>
-            </div>
-    </div>
 
     `;
 
@@ -150,6 +148,7 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
     return servicio1.precio - servicio2.precio
 })
 console.log(menorMayor); 
+
 
 
 

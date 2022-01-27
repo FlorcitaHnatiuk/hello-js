@@ -106,9 +106,7 @@
             </div>
         </div>
 
-        <!-------------------------CARRITO DE SERVICIOS!---------------------------->
-
-        <h2>Carrito de servicios</h2>
+        <!-------------------------LISTADO DE SERVICIOS!---------------------------->
 
         <form action="../../form-result.php" method="post" target="_blank">
             <p>Buscá tu servicio: <input type="search" name="busquedaservicios" placeholder="">
@@ -123,9 +121,21 @@
 
         <!-----------------------------Totales------------------------------------>
 
-        <h2>Totales</h2>
-
-        <div id="total"></div>
+        <section class="container content-section">
+            <h2 class="section-header">Carrito</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">Servicio</span>
+                <span class="cart-price cart-header cart-column">Precio</span>
+                <span class="cart-quantity cart-header cart-column">Cantidad<button class="btn btn-danger">-</button></span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">Listo!</button>
+        </section>
 
 </main>
     
