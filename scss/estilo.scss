@@ -186,6 +186,7 @@ div#text {
     font-weight: bold;
     font-size: 1.25em;
     color: #333;
+    text-align: center;
 }
 
 .cart-column {
@@ -202,7 +203,7 @@ div#text {
 }
 
 .cart-item {
-    width: 45%;
+    width: 30%;
 }
 
 .cart-price {
@@ -268,7 +269,7 @@ div#text {
 
 .cart-total-title {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: black;
     margin-right: 20px;
 }
@@ -281,7 +282,7 @@ div#text {
 .btn-purchase {
     display: block;
     margin: 40px auto 80px auto;
-    font-size: 1.75em;
+    font-size: 1em;
 }
 
 footer {

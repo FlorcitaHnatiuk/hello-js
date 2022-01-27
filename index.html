@@ -47,14 +47,21 @@
 
     <main class="container-fluid form-signin">
 
-        <div class="title mt-4">
-            <h1 id="titulo">tu taller</h1>
+        <section class="row ">
 
+        <div class="title mt-4 col-lg-6 order-lg-first">
+            <h1 id="titulo">tu taller</h1>
+        </div>
+        
+        <div class="col col-lg-6 d-lg-block justify-content-end mt-4">
             <button class="darkModeSwitch active" id="switch">
                 <span><i class="fas fa-sun"></i></span>
                 <span><i class="fas fa-moon"></i></span>
-            </button>
+            </button>    
         </div>
+
+        </section>
+        
         
             <div class="usuario m-5">
                 <section id="formulario m-5">
@@ -123,17 +130,46 @@
 
         <section class="container content-section">
             <h2 class="section-header">Carrito</h2>
+            <p>Presupuesto por servicios seleccionados</p>
             <div class="cart-row">
                 <span class="cart-item cart-header cart-column">Servicio</span>
-                <span class="cart-price cart-header cart-column">Precio</span>
-                <span class="cart-quantity cart-header cart-column">Cantidad<button class="btn btn-danger">-</button></span>
+                <span class="cart-item cart-price cart-header cart-column">Precio</span>
+                <span class="cart-item cart-quantity cart-header cart-column">Quitar</span>
+                <span class="cart-item cart-time cart-header cart-column">Tiempo estimado</span>
             </div>
+
             <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <span class="cart-item-title">Motor</span>
+                    </div>
+                    <span class="cart-price cart-column">$80000</span>
+                    <div class="cart-quantity cart-column">
+                        
+                        <button class="btn btn-danger" type="button">-</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="cart-items">
+                    <div class="cart-row">
+                        <div class="cart-item cart-column">
+                            <span class="cart-item-title">Frenos</span>
+                        </div>
+                        <span class="cart-price cart-column">$25000</span>
+                        <div class="cart-quantity cart-column">
+                            
+                            <button class="btn btn-danger" type="button">-</button>
+                        </div>
+                        </div>
+                    </div>
             </div>
+
             <div class="cart-total">
-                <strong class="cart-total-title">Total</strong>
+                <strong class="cart-total-title m-5">Total</strong>
                 <span class="cart-total-price">$0</span>
             </div>
+            
             <button class="btn btn-primary btn-purchase" type="button">Listo!</button>
         </section>
 

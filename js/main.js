@@ -118,7 +118,7 @@ for (const servicio of servicios) {
             <span class="shop-item-title">${servicio.nombre}</span>
                     <div class="shop-item-details">
                         <span class="shop-item-price">$${servicio.precio}</span>
-                        <button class="btn btn-primary shop-item-button" type="button">+</button>
+                        <span><button class="btn btn-primary shop-item-button" type="button">+</button></span>
                     </div>
                 </div>
 
@@ -147,8 +147,14 @@ let serviciosParseados = JSON.parse(serviciosString);
 const menorMayor = servicios.sort((servicio1, servicio2) => {
     return servicio1.precio - servicio2.precio
 })
-console.log(menorMayor); 
+console.log(menorMayor);
 
-
-
-
+let removeButtons = document.getElementsByClassName('btn-danger');
+console.log(removeButtons);
+for (let i = 0; i < removeButtons.length; i++) {
+    let button = removeButtons[i];
+    button.addEventListener('click', function(event) {
+        let buttonClicked = event.target
+        buttonClicked.parentElement.parentElement.remove()
+    })
+}
