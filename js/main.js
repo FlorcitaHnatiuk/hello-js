@@ -1,8 +1,5 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
-});
 
-alert ("Hola! los valores y tiempo que vas a ver son estimativos :). Cualquier parecido con la realidad es pura coincidencia.");
+swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
 function saveUser(storage) {
     let nombre = document.getElementById('nombre').value;
@@ -26,7 +23,7 @@ function saveUser(storage) {
         sessionStorage.setItem("user", JSON.stringify(usuario));
     }
     if (storage === "localStorage") {
-        localStorage.setItem("user", JSON.stringify(usuario))
+        localStorage.setItem("user", JSON.stringify(usuario));
     }
 }
 
@@ -76,7 +73,7 @@ element.innerHTML = "Bienvenido a nuestra web :)";
 
 // PATENTE VIEJA O NUEVA?
 
-console.log(`${patente} ${patente.length}`);
+//console.log(`${patente} ${patente.length}`);
 
 function añoPatente() {
     if (patente.length == 6) {
@@ -103,6 +100,11 @@ const servicios = [
     {id: 11, nombre: "Bujes",           precio: 2000,   tiempo: 1},
     {id: 12, nombre: "Cremallera",      precio: 80000,  tiempo: 2},
     {id: 13, nombre: "Bieletas",        precio: 80000,  tiempo: 2},
+    {id: 14, nombre: "Perno y buje",    precio: 80000,  tiempo: 2},
+    {id: 15, nombre: "Rotula",          precio: 80000,  tiempo: 2},
+    {id: 16, nombre: "Depresor",        precio: 80000,  tiempo: 2},
+    {id: 17, nombre: "Precap",          precio: 80000,  tiempo: 2},
+    {id: 18, nombre: "Semiejes",        precio: 80000,  tiempo: 2}
 ]
 
 for (const servicio of servicios) {
@@ -121,8 +123,7 @@ for (const servicio of servicios) {
                         <span><button class="btn btn-primary shop-item-button" type="button">+</button></span>
                     </div>
                 </div>
-
-    `;
+        `;
 
     document.getElementById("serviceCart").appendChild(container);
 }
@@ -149,6 +150,7 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
 })
 console.log(menorMayor);
 
+// Remover del carrito
 let removeButtons = document.getElementsByClassName('btn-danger');
 console.log(removeButtons);
 for (let i = 0; i < removeButtons.length; i++) {
@@ -158,3 +160,8 @@ for (let i = 0; i < removeButtons.length; i++) {
         buttonClicked.parentElement.parentElement.remove()
     })
 }
+
+//Agregar al carrito => shop-item-button misma funcion? add() 'click'
+
+let addToCartButton = document.getElementsByClassName('shop-item-button');
+console.log(addToCartButton);
