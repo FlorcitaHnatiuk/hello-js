@@ -172,8 +172,14 @@ const setCarrito = objeto => {
     }
 
     carrito[prod.id] = {...prod}
-    console.log(carrito)
+    hacerCarrito()
+    //console.log(carrito)
 } 
+
+const hacerCarrito = () => {
+    console.log(carrito)
+}
+
 
 
 // Remover del carrito
