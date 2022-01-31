@@ -37,7 +37,6 @@ function clicked(){
     ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
 }
 
-
 function deleteUser(storage) {
     storage.clear();
 }
@@ -52,8 +51,6 @@ btnLogin.addEventListener("click", () => {
     }
 });
 
-//SHOW AND HIDE PASSWORD
-
 //NIGHT AND DAY
 const switchButton = document.getElementById('switch');
 
@@ -62,14 +59,13 @@ switchButton.addEventListener('click', () => {
     switchButton.classList.toggle('active');
 });
 
+
 let espacio = " ";
 
 // Cambiar titulo dependiendo del usuario ingresado
 
 const element = document.getElementById("titulo")
 element.innerHTML = "Bienvenido a nuestra web :)";
-
-// CREAR UNA FUNCION QUE DIGA TIEMPO ESTIMATIVO QUE LLEVARÁ EL TRABAJO SEGUN SERVICIOS SELECCIONADOS
 
 // PATENTE VIEJA O NUEVA?
 
@@ -86,7 +82,7 @@ añoPatente();
 
 // Creación de servicios => mandar a JSON?
 
-const servicios = [
+let servicios = [
     {id: 1, nombre: "Llantas",          precio: 80000,  tiempo: 2},
     {id: 2, nombre: "Neumáticos",       precio: 20000,  tiempo: 1},
     {id: 3, nombre: "Frenos",           precio: 25000 , tiempo: 3},
@@ -116,10 +112,10 @@ for (const servicio of servicios) {
     container.innerHTML = `
 
     <div class="shop-items">
-        <div class="shop-item">
-            <span class="shop-item-title">${servicio.nombre}</span>
+        <div class="shop-item" >
+            <h5 class="shop-item-title" id="${servicio.id}">${servicio.nombre}</h5>
                     <div class="shop-item-details">
-                        <span class="shop-item-price">$${servicio.precio}</span>
+                        <p class="shop-item-price">$${servicio.precio}</p>
                         <span><button class="btn btn-primary shop-item-button" type="button">+</button></span>
                     </div>
                 </div>
@@ -150,6 +146,32 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
 })
 console.log(menorMayor);
 
+//agregar al carrito elementos
+let carrito = {}
+const items = document.getElementById('serviceCart')
+items.addEventListener('click', e => { 
+    addCarrito(e)
+})
+
+const addCarrito = e => {
+    //console.log(e.target)
+    //console.log(e.target.classList.contains('btn-primary'))
+    if(e.target.classList.contains('btn-primary')) {
+        setCarrito(e.target.parentElement.parentElement.parentElement)
+        //console.log(e.target.parentElement.parentElement.parentElement)
+    }
+    e.stopPropagation()
+}
+
+const setCarrito = objeto => {
+    console.log(objeto)
+    const prod = {
+        id: objeto.querySelector('h5').id
+    }
+    console.log(prod)
+} 
+
+
 // Remover del carrito
 let removeButtons = document.getElementsByClassName('btn-danger');
 console.log(removeButtons);
@@ -160,8 +182,3 @@ for (let i = 0; i < removeButtons.length; i++) {
         buttonClicked.parentElement.parentElement.remove()
     })
 }
-
-//Agregar al carrito => shop-item-button misma funcion? add() 'click'
-
-let addToCartButton = document.getElementsByClassName('shop-item-button');
-console.log(addToCartButton);
