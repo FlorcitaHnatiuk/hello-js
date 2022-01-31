@@ -164,11 +164,15 @@ const addCarrito = e => {
 }
 
 const setCarrito = objeto => {
-    console.log(objeto)
+    //console.log(objeto)
     const prod = {
-        id: objeto.querySelector('h5').id
+        id: objeto.querySelector('h5').id,
+        nombre: objeto.querySelector('h5').textContent,
+        precio: objeto.querySelector('p').textContent
     }
-    console.log(prod)
+
+    carrito[prod.id] = {...prod}
+    console.log(carrito)
 } 
 
 
