@@ -2,13 +2,13 @@
 swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
 function saveUser(storage) {
-    let nombre = document.getElementById('nombre').value;
-    let apellido = document.getElementById('apellido').value;
-    let email = document.getElementById('email').value;
-    let marca = document.getElementById('marca').value;
-    let modelo = document.getElementById('modelo').value;
-    let patente = document.getElementById('patente').value.toUpperCase();
-    let password = document.getElementById('password').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const email = document.getElementById('email').value;
+    const marca = document.getElementById('marca').value;
+    const modelo = document.getElementById('modelo').value;
+    const patente = document.getElementById('patente').value.toUpperCase();
+    const password = document.getElementById('password').value;
     const usuario = {
         'nombre': nombre,
         'apellido': apellido,
@@ -127,7 +127,6 @@ for (const servicio of servicios) {
 
 // ALMACENAR SERVICIOS 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-
 for (const nombre of servicios) {
     guardarLocal(nombre.id, JSON.stringify(nombre));
 }
@@ -146,25 +145,22 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
 })
 console.log(menorMayor);
 
-//agregar al carrito elementos
-let carrito = {}
+const it = document.getElementById('items')
+let carrito = {};
+
 const items = document.getElementById('serviceCart')
 items.addEventListener('click', e => { 
     addCarrito(e)
 })
 
 const addCarrito = e => {
-    //console.log(e.target)
-    //console.log(e.target.classList.contains('btn-primary'))
     if(e.target.classList.contains('btn-primary')) {
         setCarrito(e.target.parentElement.parentElement.parentElement)
-        //console.log(e.target.parentElement.parentElement.parentElement)
     }
     e.stopPropagation()
 }
 
 const setCarrito = objeto => {
-    //console.log(objeto)
     const prod = {
         id: objeto.querySelector('h5').id,
         nombre: objeto.querySelector('h5').textContent,
@@ -173,16 +169,27 @@ const setCarrito = objeto => {
 
     carrito[prod.id] = {...prod}
     hacerCarrito()
-    //console.log(carrito)
 } 
 
-const hacerCarrito = () => {
+function hacerCarrito(){
     console.log(carrito)
-}
+    for (const servicios of carrito) {
+        const totals = document.createElement('div')
+        totals.classList.add('cart-items');
+        `<div class="cart-items">
+            <div class="cart-item" >
+            <h5 class="cart-item-title">${servicios.nombre}</h5>
+                    <div class="cart-item-details">
+                        <p class="cart-item-price">$${servicios.precio}</p>
+                        <span><button class="btn btn-danger" type="button">-</button></span>
+                    </div>
+                </div>
+        `;
+    }
+    document.getElementById("totalsCart").appendChild(totals);
+}  
 
-
-
-// Remover del carrito
+//Botón para remover el servicio del carrito
 let removeButtons = document.getElementsByClassName('btn-danger');
 console.log(removeButtons);
 for (let i = 0; i < removeButtons.length; i++) {
@@ -192,3 +199,4 @@ for (let i = 0; i < removeButtons.length; i++) {
         buttonClicked.parentElement.parentElement.remove()
     })
 }
+
