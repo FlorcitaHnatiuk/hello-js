@@ -124,6 +124,8 @@ for (const servicio of servicios) {
     document.getElementById("serviceCart").appendChild(container);
 }
 
+//solo una prueba de jquery
+console.log($('.shop-items'));
 
 // ALMACENAR SERVICIOS 
 const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
@@ -173,21 +175,16 @@ const setCarrito = objeto => {
 
 function hacerCarrito(){
     console.log(carrito)
-    for (const servicios of carrito) {
-        const totals = document.createElement('div')
-        totals.classList.add('cart-items');
+    $('#totalsCart').append(
         `<div class="cart-items">
             <div class="cart-item" >
-            <h5 class="cart-item-title">${servicios.nombre}</h5>
-                    <div class="cart-item-details">
-                        <p class="cart-item-price">$${servicios.precio}</p>
-                        <span><button class="btn btn-danger" type="button">-</button></span>
-                    </div>
+                <h5 class="cart-item-title">${servicios.nombre}</h5>
+                <div class="cart-item-details">
+                    <p class="cart-item-price">$${servicios.precio}</p>
+                    <span><button class="btn btn-danger" type="button">-</button></span>
                 </div>
-        `;
-    }
-    document.getElementById("totalsCart").appendChild(totals);
-}  
+            </div>`)
+        }
 
 //Botón para remover el servicio del carrito
 let removeButtons = document.getElementsByClassName('btn-danger');
