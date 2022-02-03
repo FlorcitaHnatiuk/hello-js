@@ -167,11 +167,11 @@ const addCarrito = e => {
 }
 
 const setCarrito = objeto => {
-    const prod = {
+        const prod = {
         id: objeto.querySelector('h5').id,
         nombre: objeto.querySelector('h5').textContent,
         precio: objeto.querySelector('p').textContent,
-    }
+    } 
 
     carrito = [...carrito, prod]
     hacerCarrito()
@@ -181,7 +181,7 @@ function hacerCarrito(){
     console.log(carrito)
     carrito.forEach(el => {
         $('#totalsCart').append(`
-                <div class="cart-row">
+        <div class="cart-row">
                     <span class="cart-item cart-column">${el.nombre}</span>
                     <span class="cart-quantity cart-column">${el.tiempo}</span>
                     <span class="cart-column">${el.precio}</span>
