@@ -40,7 +40,7 @@ body.dark {
   body.dark p, body.dark span {
     color: #EEEEEE; }
   body.dark .form-control {
-    background-color: #222831; }
+    background-color: #EEEEEE; }
 
 h1,
 h2,
@@ -190,6 +190,9 @@ div#text {
 
 .btn-danger:hover {
   background-color: #CC4C4C; }
+
+.hidden-cart-item {
+  display: none; }
 
 .cart-quantity-input {
   height: 34px;

@@ -85,7 +85,7 @@ añoPatente();
 let servicios = [
     {id: 1, nombre: "Llantas",          precio: 80000,  tiempo: 2},
     {id: 2, nombre: "Neumáticos",       precio: 20000,  tiempo: 1},
-    {id: 3, nombre: "Frenos",           precio: 25000 , tiempo: 3},
+    {id: 3, nombre: "Frenos",           precio: 5990 ,  tiempo: 3},
     {id: 4, nombre: "Alineación",       precio: 10000,  tiempo: 5},
     {id: 5, nombre: "Motor",            precio: 80000,  tiempo: 12},
     {id: 6, nombre: "Service",          precio: 60000,  tiempo: 2},
@@ -97,10 +97,11 @@ let servicios = [
     {id: 12, nombre: "Cremallera",      precio: 80000,  tiempo: 2},
     {id: 13, nombre: "Bieletas",        precio: 80000,  tiempo: 2},
     {id: 14, nombre: "Perno y buje",    precio: 80000,  tiempo: 2},
-    {id: 15, nombre: "Rotula",          precio: 80000,  tiempo: 2},
-    {id: 16, nombre: "Depresor",        precio: 80000,  tiempo: 2},
-    {id: 17, nombre: "Precap",          precio: 80000,  tiempo: 2},
-    {id: 18, nombre: "Semiejes",        precio: 80000,  tiempo: 2}
+    {id: 15, nombre: "Rotula",          precio: 500,    tiempo: 1},
+    {id: 16, nombre: "Depresor",        precio: 5990,   tiempo: 2},
+    {id: 17, nombre: "Precap",          precio: 1883,   tiempo: 2},
+    {id: 18, nombre: "Semiejes",        precio: 80000,  tiempo: 2},
+    {id: 19, nombre: "Tren delantero",  precio: 11500,  tiempo: 6}
 ]
 
 for (const servicio of servicios) {
@@ -112,13 +113,16 @@ for (const servicio of servicios) {
     container.innerHTML = `
 
     <div class="shop-items">
-        <div class="shop-item" >
+        <div class="shop-item text-center" >
             <h5 class="shop-item-title" id="${servicio.id}">${servicio.nombre}</h5>
                     <div class="shop-item-details">
-                        <p class="shop-item-price">$${servicio.precio}</p>
+                        <p class="shop-item-price">$${servicio.precio}</p> 
+                    </div>
+                    <div>
                         <span><button class="btn btn-primary shop-item-button" type="button">+</button></span>
                     </div>
                 </div>
+
         `;
 
     document.getElementById("serviceCart").appendChild(container);
@@ -148,7 +152,7 @@ const menorMayor = servicios.sort((servicio1, servicio2) => {
 console.log(menorMayor);
 
 const it = document.getElementById('items')
-let carrito = {};
+let carrito = [];
 
 const items = document.getElementById('serviceCart')
 items.addEventListener('click', e => { 
@@ -166,25 +170,27 @@ const setCarrito = objeto => {
     const prod = {
         id: objeto.querySelector('h5').id,
         nombre: objeto.querySelector('h5').textContent,
-        precio: objeto.querySelector('p').textContent
+        precio: objeto.querySelector('p').textContent,
     }
 
-    carrito[prod.id] = {...prod}
+    carrito = [...carrito, prod]
     hacerCarrito()
 } 
 
 function hacerCarrito(){
     console.log(carrito)
-    $('#totalsCart').append(
-        `<div class="cart-items">
-            <div class="cart-item" >
-                <h5 class="cart-item-title">${servicios.nombre}</h5>
-                <div class="cart-item-details">
-                    <p class="cart-item-price">$${servicios.precio}</p>
-                    <span><button class="btn btn-danger" type="button">-</button></span>
+    carrito.forEach(el => {
+        $('#totalsCart').append(`
+                <div class="cart-row">
+                    <span class="cart-item cart-column">${el.nombre}</span>
+                    <span class="cart-quantity cart-column">${el.tiempo}</span>
+                    <span class="cart-column">${el.precio}</span>
+                    <span class="cart-quantity cart-column">${el.cantidad}</span>
+                    <span class="cart-quantity cart-column">Subtotal</span>
                 </div>
-            </div>`)
-        }
+        `)
+    })
+    }
 
 //Botón para remover el servicio del carrito
 let removeButtons = document.getElementsByClassName('btn-danger');
