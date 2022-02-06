@@ -171,27 +171,32 @@
                 nombre: objeto.querySelector('h5').textContent,
                 precio: objeto.querySelector('p').textContent,
             } 
-        
-            carrito = [...carrito, prod]
-            hacerCarrito()
+
+            carrito.push(prod)
+            /* carrito = [...carrito, prod] */
+            hacerCarrito() 
         } 
         
         function hacerCarrito(){
             console.log(carrito)
-            carrito.forEach(el => {
-                $('#totalsCart').append(`
-                <div class="cart-row">
-                            <span class="cart-item cart-column">${el.nombre}</span>
-                            <span class="cart-quantity cart-column">${el.tiempo}</span>
-                            <span class="cart-column">${el.precio}</span>
-                            <input type="number" id="number" value="0"  min="1" max="4" class="cart-quantity cart-column"></input>
-                            <button class="btn btn-danger">-</button>
+            const totals = document.createElement('div')
+            for (const item of carrito) {
+                totals.classList.add('cart-items');
+                totals.innerHTML += `
+
+
+                        <div class="cart-row text-center">
+                            <span class="cart-item cart-column">${item.nombre}</span>
+                            <span class="cart-price cart-column">${item.precio}</span>
+                            <span class="cart-quantity cart-column"><input type="number" min="1" max="4"></input><button class="btn btn-danger m-3">-</button></span>
                             <span class="cart-quantity cart-column">Subtotal</span>
                         </div>
-                `)
-            })
+                `;
             }
-        
+            document.getElementById("totalsCart").innerHTML = '';
+            document.getElementById("totalsCart").appendChild(totals);
+        }  
+
         //Botón para remover el servicio del carrito
         let removeButtons = document.getElementsByClassName('btn-danger');
         console.log(removeButtons);
