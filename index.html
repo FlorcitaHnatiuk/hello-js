@@ -50,8 +50,58 @@
 
         <section class="row back-principal">
 
-            <div class="title mt-4 order-lg-first">
+            <div class="title mt-4 text-center">
                 <h1 id="titulo">Llevar tu auto al taller, más sencillo</h1>
+            </div>
+
+            <div class="usuario m-5 text-center">
+                <section id="formulario m-5">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
+                        <label for="nombre" class="form-label">Nombre</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="apellido" placeholder="Apellido" />
+                        <label for="apellido" class="form-label">Apellido</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="name@example.com" />
+                        <label for="email" class="form-label">Email</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="marca" placeholder="Marca" />
+                        <label for="marca" class="form-label">Marca</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="modelo" placeholder="Modelo de auto" />
+                        <label for="modelo" class="form-label">Modelo</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="patente" placeholder="Patente" />
+                        <label for="patente" class="form-label">Patente</label>
+                    </div>
+    
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" placeholder="Contraseña" required />
+                        <label for="password" class="form-label">Contraseña<span>
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </label>
+                    </div>
+    
+                    <div class="checkbox m-3">
+                        <label><input type="checkbox" id="remember" value="remember-me" class="m-3">Querés que la web te
+                            recuerde?</label>
+                    </div>
+    
+                    <button class="w-100 btn btn-primary" id="btnLogin" type="submit">Iniciar sesión</button>
+    
+                </section>
             </div>
 
             <div class="col col-lg-6 d-lg-block justify-content-end mt-4">
@@ -62,7 +112,7 @@
             </div>
 
         </section>
-
+      
         <div class="usuario m-5">
             <section id="formulario m-5">
                 <div class="form-floating">
@@ -116,19 +166,18 @@
 
         <!-------------------------LISTADO DE SERVICIOS!---------------------------->
 
-        <form action="../../form-result.php" method="post" target="_blank">
+<!--         <form action="../../form-result.php" method="post" target="_blank">
             <p>Buscá tu servicio: <input type="search" name="busquedaservicios" placeholder="">
                 <input type="submit" value="Buscar">
             </p>
-        </form>
-
+        </form> -->
+        <h2 class="mt-5">Seleccioná los servicios</h2>
         <div id="serviceCart"></div>
 
         <!-- <h2>Estos son los arreglos que seleccionaste para tu auto </h2> 
         Poner en vez de "auto" el modelo del auto que ingresó previamente el usuario -->
 
         <!-----------------------------Totales------------------------------------>
-
         <section class="container content-section">
 
             <h2 class="section-header">Carrito</h2>
@@ -153,6 +202,28 @@
             </div>
 
             <button class="btn btn-success btn-purchase" type="button">Listo!</button>
+
+            <section class="container content-section">
+                <h2 class="section-header">Carrito</h2>
+                <p>Presupuesto por servicios seleccionados</p>
+                <div class="cart-row text-center">
+                    <span class="cart-item cart-header cart-column">Servicio</span>
+                    <span class="cart-price cart-header cart-column">Precio</span>
+                    <span class="cart-quantity cart-header cart-column">Cantidad</span>
+                    <span class="cart-quantity cart-header cart-column">Subtotal</span>
+                </div>
+                
+                <div id="totalsCart"></div>
+
+                <!-- <div class="cart-items"></div> -->
+                
+                <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">$0</span>
+                </div>
+                <button class="btn btn-success btn-purchase" type="button">Listo!</button>
+            </section>
+
 
         </section>
 

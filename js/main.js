@@ -261,6 +261,49 @@ $(() => {
     //Botón para remover el servicio del carrito
     function asignarAccionEliminar(){
 
+
+        
+        const addCarrito = e => {
+            if(e.target.classList.contains('btn-primary')) {
+                setCarrito(e.target.parentElement.parentElement.parentElement)
+            }
+            e.stopPropagation()
+        }
+        
+        const setCarrito = objeto => {
+                const prod = {
+                id: objeto.querySelector('h5').id,
+                nombre: objeto.querySelector('h5').textContent,
+                precio: objeto.querySelector('p').textContent,
+            } 
+
+            carrito.push(prod)
+            /* carrito = [...carrito, prod] */
+            hacerCarrito() 
+        } 
+        
+        function hacerCarrito(){
+            console.log(carrito)
+            const totals = document.createElement('div')
+            for (const item of carrito) {
+                totals.classList.add('cart-items');
+                totals.innerHTML += `
+
+
+                        <div class="cart-row text-center">
+                            <span class="cart-item cart-column">${item.nombre}</span>
+                            <span class="cart-price cart-column">${item.precio}</span>
+                            <span class="cart-quantity cart-column"><input type="number" min="1" max="4"></input><button class="btn btn-danger m-3">-</button></span>
+                            <span class="cart-quantity cart-column">Subtotal</span>
+                        </div>
+                `;
+            }
+            document.getElementById("totalsCart").innerHTML = '';
+            document.getElementById("totalsCart").appendChild(totals);
+        }  
+
+        //Botón para remover el servicio del carrito
+
         let removeButtons = document.getElementsByClassName('btn-danger');
 
         for (let i = 0; i < removeButtons.length; i++) {
