@@ -17,7 +17,7 @@ a {
   text-decoration: none;
   color: black; }
   a:hover {
-    color: greenyellow !important; }
+    color: burlywood !important; }
 
 body {
   width: 100%;
@@ -42,19 +42,30 @@ body.dark {
   body.dark .form-control {
     background-color: #EEEEEE; }
 
+h1 {
+  font-size: 4.5em; }
+
 h1,
 h2,
 h3 {
   font-family: 'Bangers', cursive; }
+
+.usuario {
+  display: flex; }
+
+.back-principal {
+  background: url(../images/street.webp);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-size: cover;
+  background-position: cover;
+  height: 800px; }
 
 .navbar {
   color: black; }
   .navbar a {
     color: grey;
     text-decoration: none; }
-
-footer {
-  padding: 40px 0 40px; }
 
 div#text {
   color: yellow;
@@ -102,10 +113,6 @@ div#text {
 .darkModeSwitch.active::after {
   left: unset;
   right: 0; }
-
-.usuario {
-  display: flex;
-  justify-content: center; }
 
 #serviceCart {
   display: flex;
