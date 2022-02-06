@@ -134,7 +134,7 @@ $(() => {
             <div class="shop-item text-center" >
                 <h5 class="shop-item-title" id="${servicio.id}">${servicio.nombre}</h5>
                 <div class="shop-item-details">
-                    <span>$</span>
+                    <p>$</p>
                     <p class="shop-item-price">${servicio.precio}</p> 
                 </div>
                 <div>
@@ -262,8 +262,6 @@ $(() => {
     function asignarAccionEliminar(){
 
         let removeButtons = document.getElementsByClassName('btn-danger');
-
-        console.log(removeButtons);
 
         for (let i = 0; i < removeButtons.length; i++) {
 
