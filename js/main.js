@@ -244,13 +244,13 @@ $(() => {
 
         })
 
-        modigicarPrecioTotal(precioTotal);
+        modificarPrecioTotal(precioTotal);
 
         asignarAccionEliminar();
 
     }
     
-    function modigicarPrecioTotal(precioTotal){
+    function modificarPrecioTotal(precioTotal){
 
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
 
