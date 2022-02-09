@@ -25,12 +25,14 @@ body {
   display: block;
   margin: auto;
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif;
-  background: #f2f2f2; }
+  font-family: 'Montserrat', sans-serif; }
   body h1 {
     color: black; }
   body p {
     color: black; }
+
+.colored {
+  background: #B2B1B9; }
 
 body.dark {
   background: black; }
@@ -43,7 +45,8 @@ body.dark {
     background-color: #EEEEEE; }
 
 h1 {
-  font-size: 4.5em; }
+  font-size: 4.5em;
+  padding: 15% 15% 7%; }
 
 h1,
 h2,
@@ -52,14 +55,6 @@ h3 {
 
 .usuario {
   display: flex; }
-
-.back-principal {
-  background: url(../images/street.webp);
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  background-size: cover;
-  background-position: cover;
-  height: 800px; }
 
 .navbar {
   color: black; }

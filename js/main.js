@@ -1,6 +1,5 @@
 $(() => {
 
-
     swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
     function saveUser(storage) {
@@ -229,18 +228,16 @@ $(() => {
 
             $('#totalsCart').append(
                 `
-                    <div class="cart-row">
-                        <span class="cart-item cart-column">${el.nombre}</span>
-                        <span class="cart-quantity cart-column">${el.tiempo}</span>
-                        <span class="cart-column">${el.precio}</span>
-                        <input type="number" id="number" value="${el.cantidad}"  min="1" max="4" class="cart-quantity cart-column"></input>
-                        <button class="btn btn-danger">-</button>
-                        <span class="cart-quantity cart-column">${el.precio*el.cantidad}</span>
-                    </div>
+                <div class="cart-row text-center">
+                <span class="cart-item cart-column">${el.nombre}</span>
+                <span class="cart-price cart-column">${el.precio}</span>
+                <span class="cart-quantity cart-column">${el.cantidad}<button class="btn btn-danger m-3">-</button></span>
+                <span class="cart-quantity cart-column">$${el.precio*el.cantidad}</span>
+                </div>
                 `
             )
 
-                precioTotal += el.precio*el.cantidad;
+            precioTotal += el.precio*el.cantidad;
 
         })
 
@@ -258,8 +255,6 @@ $(() => {
 
     //Botón para remover el servicio del carrito
     function asignarAccionEliminar(){
-
-
         
         const addCarrito = e => {
             if(e.target.classList.contains('btn-primary')) {
@@ -289,7 +284,7 @@ $(() => {
                         <div class="cart-row text-center">
                             <span class="cart-item cart-column">${item.nombre}</span>
                             <span class="cart-price cart-column">${item.precio}</span>
-                            <span class="cart-quantity cart-column"><input type="number" min="1" max="4"></input><button class="btn btn-danger m-3">-</button></span>
+                            <span class="cart-quantity cart-column">${item.cantidad}<button class="btn btn-danger m-3">-</button></span>
                             <span class="cart-quantity cart-column">Subtotal</span>
                         </div>
                 `;

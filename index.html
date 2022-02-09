@@ -46,61 +46,64 @@
         </div>
     </nav>
 
-    <main class="container-fluid form-signin">
+    <main>
 
-        <section class="row back-principal">
+        <section class="colored row">
 
-            <div class="title mt-4 text-center">
-                <h1 id="titulo">Llevar tu auto al taller, más sencillo</h1>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">Llevar el auto al taller, ahora más sencillo</h1>
+                </div>
+                <div class="col-lg-6">
+                    <div class="usuario m-5 text-center">
+                        <section id="formulario m-5">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
+                                <label for="nombre" class="form-label">Nombre</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="apellido" placeholder="Apellido" />
+                                <label for="apellido" class="form-label">Apellido</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" placeholder="name@example.com" />
+                                <label for="email" class="form-label">Email</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="marca" placeholder="Marca" />
+                                <label for="marca" class="form-label">Marca</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="modelo" placeholder="Modelo de auto" />
+                                <label for="modelo" class="form-label">Modelo</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="patente" placeholder="Patente" />
+                                <label for="patente" class="form-label">Patente</label>
+                            </div>
+            
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="password" placeholder="Contraseña" required />
+                                <label for="password" class="form-label">Contraseña<span>
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                </label>
+                            </div>
+            
+                            <div class="checkbox m-3">
+                                <label><input type="checkbox" id="remember" value="remember-me" class="m-3">Querés que la web te
+                                    recuerde?</label>
+                            </div>
+            
+                    <button class="w-100 btn btn-primary" id="btnLogin" type="submit">Iniciar sesión</button>
+                </div>
             </div>
 
-            <div class="usuario m-5 text-center">
-                <section id="formulario m-5">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
-                        <label for="nombre" class="form-label">Nombre</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="apellido" placeholder="Apellido" />
-                        <label for="apellido" class="form-label">Apellido</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" />
-                        <label for="email" class="form-label">Email</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="marca" placeholder="Marca" />
-                        <label for="marca" class="form-label">Marca</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="modelo" placeholder="Modelo de auto" />
-                        <label for="modelo" class="form-label">Modelo</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="patente" placeholder="Patente" />
-                        <label for="patente" class="form-label">Patente</label>
-                    </div>
-    
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña" required />
-                        <label for="password" class="form-label">Contraseña<span>
-                                <i class="fas fa-eye"></i>
-                            </span>
-                        </label>
-                    </div>
-    
-                    <div class="checkbox m-3">
-                        <label><input type="checkbox" id="remember" value="remember-me" class="m-3">Querés que la web te
-                            recuerde?</label>
-                    </div>
-    
-                    <button class="w-100 btn btn-primary" id="btnLogin" type="submit">Iniciar sesión</button>
-    
                 </section>
             </div>
 
@@ -113,9 +116,7 @@
 
         </section>
 
-
-        
-        </div>
+    </div>
 
         <!-------------------------LISTADO DE SERVICIOS!---------------------------->
 
@@ -162,7 +163,7 @@
 
     <!-------------------------FOOTER---------------------------->
 
-    <footer class="container-fluid">
+    <footer class="colored container-fluid">
         <div>
             <ul>
                 <li>
