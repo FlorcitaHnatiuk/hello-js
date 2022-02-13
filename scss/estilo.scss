@@ -67,7 +67,7 @@ body.dark {
 	position: relative;
 	height: 60px;
 	width: 200px;
-	background: #00BCD4 !important;
+	background: #FFD523 !important;
 	border-radius: 8px;
 	text-align: center;
 	margin: 200px auto 0 auto;
@@ -261,7 +261,7 @@ div#text {
 
 .darkModeSwitch::after {
     display: block;
-    background: #fffbf5;
+    background: #B2B1B9;
     width: 1.9rem;
     height: 1.9rem;
     position: absolute;
@@ -275,7 +275,7 @@ div#text {
 }
 
 .darkModeSwitch.active {
-    background: yellow;
+    background: #FFD523;
 }
 
 .darkModeSwitch.active::after {

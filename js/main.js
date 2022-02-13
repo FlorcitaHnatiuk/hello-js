@@ -2,24 +2,22 @@ $(() => {
 
     swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
-    $('.marcas').hover(makeBigger, returnToOriginalSize);
+    $('.marcas').hover(bigger, original);
 
     //Agrandar on hover el h1
-    function makeBigger() {
+    function bigger() {
         $(this).css({
             height: '+=10%',
             width: '+=10%'
         });
     }
 
-    function returnToOriginalSize() {
+    function original() {
         $(this).css({
             height: "",
             width: ""
         });
     }
-
-
 
     function saveUser(storage) {
 
@@ -390,7 +388,7 @@ $(() => {
             }
 
             carrito.push(prod)
-            /* carrito = [...carrito, prod] */
+            
             hacerCarrito()
         }
 
