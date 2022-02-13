@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg sticky-top border-bottom">
         <div class="container-fluid">
             <p class="navbar-brand" href="#">mecMed</p>
@@ -31,6 +32,14 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end w-100" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li>
+                        <div class="col col-lg-6 d-lg-block justify-content-end mt-4">
+                            <button class="darkModeSwitch active" id="switch">
+                                <span><i class="fas fa-sun"></i></span>
+                                <span><i class="fas fa-moon"></i></span>
+                            </button>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
@@ -40,124 +49,109 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Pricing</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
-
+    <!-- Fin de navbar -->
+    <!-- Comienzo --> 
     <main>
-
         <section class="colored row">
-
             <div class="row">
-                <div class="col-lg-6">
-                    <h1 class="big-heading">Llevar el auto al taller, ahora más sencillo</h1>
+                <div class="col-lg-8">
+                    <h1 class="big-heading">Sacá turno para llevar el auto al mecánico!</h1>
                 </div>
-                <div class="col-lg-6">
+                <!-- Formulario de ingreso -->
+                <div class="col-lg-4">
                     <div class="usuario m-5 text-center">
                         <section id="formulario m-5">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="nombre" placeholder="Nombre" />
                                 <label for="nombre" class="form-label">Nombre</label>
                             </div>
-            
+
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="apellido" placeholder="Apellido" />
                                 <label for="apellido" class="form-label">Apellido</label>
                             </div>
-            
+
                             <div class="form-floating">
                                 <input type="email" class="form-control" id="email" placeholder="name@example.com" />
                                 <label for="email" class="form-label">Email</label>
                             </div>
-            
+
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="marca" placeholder="Marca" />
                                 <label for="marca" class="form-label">Marca</label>
                             </div>
-            
+
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="modelo" placeholder="Modelo de auto" />
                                 <label for="modelo" class="form-label">Modelo</label>
                             </div>
-            
+
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="patente" placeholder="Patente" />
                                 <label for="patente" class="form-label">Patente</label>
                             </div>
-            
+
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="password" placeholder="Contraseña" required />
+                                <input type="password" class="form-control" id="password" placeholder="Contraseña"
+                                    required />
                                 <label for="password" class="form-label">Contraseña<span>
                                         <i class="fas fa-eye"></i>
                                     </span>
                                 </label>
                             </div>
-            
+
                             <div class="checkbox m-3">
-                                <label><input type="checkbox" id="remember" value="remember-me" class="m-3">Querés que la web te
-                                    recuerde?</label>
+                                <label><input type="checkbox" id="remember" value="remember-me" class="m-3">Querés que la web te recuerde?</label>
                             </div>
-            
-                    <button class="w-100 btn btn-primary" id="btnLogin" type="submit">Iniciar sesión</button>
+
+                            <button class="w-100 btn btn-primary mostrar" id="btnLogin" type="submit">Iniciar sesión</button>
+                    </div>
                 </div>
-            </div>
-
-                </section>
-            </div>
-
-            <div class="col col-lg-6 d-lg-block justify-content-end mt-4">
-                <button class="darkModeSwitch active" id="switch">
-                    <span><i class="fas fa-sun"></i></span>
-                    <span><i class="fas fa-moon"></i></span>
-                </button>
-            </div>
 
         </section>
-
-    </div>
+        </div>
 
         <!-------------------------LISTADO DE SERVICIOS!---------------------------->
 
-<!--         <form action="../../form-result.php" method="post" target="_blank">
+        <!--         <form action="../../form-result.php" method="post" target="_blank">
             <p>Buscá tu servicio: <input type="search" name="busquedaservicios" placeholder="">
                 <input type="submit" value="Buscar">
             </p>
         </form> -->
-        <h2 class="mt-5">Seleccioná los servicios</h2>
-        <div id="serviceCart"></div>
+        <div class="oculto">
+            <h2 class="mt-5">Seleccioná los servicios</h2>
+            <div id="serviceCart"></div>
+        
+        
 
         <!-- <h2>Estos son los arreglos que seleccionaste para tu auto </h2> 
         Poner en vez de "auto" el modelo del auto que ingresó previamente el usuario -->
 
         <!-----------------------------Totales------------------------------------>
 
-            <section class="container content-section">
-                <h2 class="section-header">Carrito</h2>
-                <p>Presupuesto por servicios seleccionados</p>
-                <div class="cart-row text-center">
-                    <span class="cart-item cart-header cart-column">Servicio</span>
-                    <span class="cart-price cart-header cart-column">Precio</span>
-                    <span class="cart-quantity cart-header cart-column">Cantidad</span>
-                    <span class="cart-quantity cart-header cart-column">Subtotal</span>
-                </div>
-                
-                <div id="totalsCart"></div>
+        <section class="container content-section">
+            <h2 class="section-header">Carrito</h2>
+            <p>Presupuesto por servicios seleccionados</p>
+            <div class="cart-row text-center">
+                <span class="cart-item cart-header cart-column">Servicio</span>
+                <span class="cart-price cart-header cart-column">Precio</span>
+                <span class="cart-quantity cart-header cart-column">Cantidad</span>
+                <span class="cart-quantity cart-header cart-column">Subtotal</span>
+            </div>
 
-                <!-- <div class="cart-items"></div> -->
-                
-                <div class="cart-total">
-                    <strong class="cart-total-title">Total</strong>
-                    <span class="cart-total-price">$0</span>
-                </div>
-                <button class="btn btn-success btn-purchase" type="button">Listo!</button>
-            </section>
+            <div id="totalsCart"></div>
 
-            
-            
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-success btn-purchase" type="button">Listo!</button>
         </section>
-
+    </div>
     </main>
 
 
@@ -180,10 +174,8 @@
 
         <div class="col-12 text-center">
             <p>All Rights Reserved by © Florcita Hnatiuk 2022</p>
-            
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffd700" fill-opacity="1" d="M0,96L48,128C96,160,192,224,288,224C384,224,480,160,576,165.3C672,171,768,245,864,234.7C960,224,1056,128,1152,122.7C1248,117,1344,203,1392,245.3L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> -->
         </div>
-        
+
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

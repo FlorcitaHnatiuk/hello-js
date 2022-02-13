@@ -64,9 +64,12 @@ body.dark {
     }
 }
 
+.oculto {
+    display: none;
+}
 
 h1 {
-    font-size: 4.5em;
+    font-size: 4em;
     padding: 15% 15% 7%;
 }
 
@@ -142,7 +145,6 @@ div#text {
     left: unset;
     right: 0;
 }
-
 
 
 #serviceCart {

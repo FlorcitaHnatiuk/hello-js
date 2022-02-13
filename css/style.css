@@ -44,8 +44,11 @@ body.dark {
   body.dark .form-control {
     background-color: #EEEEEE; }
 
+.oculto {
+  display: none; }
+
 h1 {
-  font-size: 4.5em;
+  font-size: 4em;
   padding: 15% 15% 7%; }
 
 h1,
