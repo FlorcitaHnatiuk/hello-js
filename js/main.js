@@ -2,6 +2,25 @@ $(() => {
 
     swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
+    $('.marcas').hover(makeBigger, returnToOriginalSize);
+
+    //Agrandar on hover el h1
+    function makeBigger() {
+        $(this).css({
+            height: '+=10%',
+            width: '+=10%'
+        });
+    }
+
+    function returnToOriginalSize() {
+        $(this).css({
+            height: "",
+            width: ""
+        });
+    }
+
+
+
     function saveUser(storage) {
 
         const nombre = document.getElementById('nombre').value;
@@ -33,11 +52,11 @@ $(() => {
         }
 
     }
-    
+
     let button = document.getElementById("btnLogin");
     button.addEventListener("click", clicked);
-    
-    function clicked(){
+
+    function clicked() {
 
         console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu 
         ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
@@ -47,18 +66,18 @@ $(() => {
     $(".mostrar").on("click", () => {
         $('.oculto').show();
     })
-    
+
     function deleteUser(storage) {
 
         storage.clear();
 
     }
-    
+
     let remember = document.getElementById('remember');
-    
+
     btnLogin.addEventListener("click", () => {
 
-        if(remember.checked) {
+        if (remember.checked) {
 
             saveUser("localStorage");
 
@@ -69,24 +88,24 @@ $(() => {
         }
 
     });
-    
+
     //NIGHT AND DAY
     const switchButton = document.getElementById('switch');
-    
+
     switchButton.addEventListener('click', () => {
 
         document.body.classList.toggle('dark');
         switchButton.classList.toggle('active');
 
-    }); 
-    
-    
+    });
+
+
     let espacio = " ";
-    
+
     // PATENTE VIEJA O NUEVA?
-    
+
     //console.log(`${patente} ${patente.length}`);
-    
+
     function añoPatente() {
 
         if (patente.length == 6) {
@@ -98,38 +117,132 @@ $(() => {
             alert("tu patente es posterior al 2016");
 
         }
-    } 
+    }
 
-    añoPatente(); 
-    
+    añoPatente();
+
     // Creación de servicios => mandar a JSON?
-    let servicios = [
-        {id: 1, nombre: "Llantas",          precio: 80000,  tiempo: 2},
-        {id: 2, nombre: "Neumáticos",       precio: 20000,  tiempo: 1},
-        {id: 3, nombre: "Frenos",           precio: 5990 ,  tiempo: 3},
-        {id: 4, nombre: "Alineación",       precio: 5699,   tiempo: 5},
-        {id: 5, nombre: "Motor",            precio: 280000, tiempo: 12},
-        {id: 6, nombre: "Service",          precio: 60000,  tiempo: 2},
-        {id: 7, nombre: "Balanceo",         precio: 2000,   tiempo: 1},
-        {id: 8, nombre: "Amortiguadores",   precio: 2000,   tiempo: 1},
-        {id: 9, nombre: "Pastillas",        precio: 2799,   tiempo: 1},
-        {id: 10, nombre: "Bulones",         precio: 2392,   tiempo: 1},
-        {id: 11, nombre: "Bujes",           precio: 3744,   tiempo: 1},
-        {id: 12, nombre: "Cremallera",      precio: 23611,  tiempo: 2},
-        {id: 13, nombre: "Bieleta",         precio: 1490,   tiempo: 2},
-        {id: 14, nombre: "Perno y buje",    precio: 3522,   tiempo: 2},
-        {id: 15, nombre: "Rotula",          precio: 500,    tiempo: 1},
-        {id: 16, nombre: "Depresor",        precio: 5990,   tiempo: 2},
-        {id: 17, nombre: "Precap",          precio: 1883,   tiempo: 2},
-        {id: 18, nombre: "Semieje",         precio: 16500,  tiempo: 2},
-        {id: 19, nombre: "Tren delantero",  precio: 11500,  tiempo: 6}
+    let servicios = [{
+            id: 1,
+            nombre: "Llantas",
+            precio: 80000,
+            tiempo: 2
+        },
+        {
+            id: 2,
+            nombre: "Neumáticos",
+            precio: 20000,
+            tiempo: 1
+        },
+        {
+            id: 3,
+            nombre: "Frenos",
+            precio: 5990,
+            tiempo: 3
+        },
+        {
+            id: 4,
+            nombre: "Alineación",
+            precio: 5699,
+            tiempo: 5
+        },
+        {
+            id: 5,
+            nombre: "Motor",
+            precio: 280000,
+            tiempo: 12
+        },
+        {
+            id: 6,
+            nombre: "Service",
+            precio: 60000,
+            tiempo: 2
+        },
+        {
+            id: 7,
+            nombre: "Balanceo",
+            precio: 2000,
+            tiempo: 1
+        },
+        {
+            id: 8,
+            nombre: "Amortiguadores",
+            precio: 2000,
+            tiempo: 1
+        },
+        {
+            id: 9,
+            nombre: "Pastillas",
+            precio: 2799,
+            tiempo: 1
+        },
+        {
+            id: 10,
+            nombre: "Bulones",
+            precio: 2392,
+            tiempo: 1
+        },
+        {
+            id: 11,
+            nombre: "Bujes",
+            precio: 3744,
+            tiempo: 1
+        },
+        {
+            id: 12,
+            nombre: "Cremallera",
+            precio: 23611,
+            tiempo: 2
+        },
+        {
+            id: 13,
+            nombre: "Bieleta",
+            precio: 1490,
+            tiempo: 2
+        },
+        {
+            id: 14,
+            nombre: "Perno y buje",
+            precio: 3522,
+            tiempo: 2
+        },
+        {
+            id: 15,
+            nombre: "Rotula",
+            precio: 500,
+            tiempo: 1
+        },
+        {
+            id: 16,
+            nombre: "Depresor",
+            precio: 5990,
+            tiempo: 2
+        },
+        {
+            id: 17,
+            nombre: "Precap",
+            precio: 1883,
+            tiempo: 2
+        },
+        {
+            id: 18,
+            nombre: "Semieje",
+            precio: 16500,
+            tiempo: 2
+        },
+        {
+            id: 19,
+            nombre: "Tren delantero",
+            precio: 11500,
+            tiempo: 6
+        }
     ]
-    
+
     for (const servicio of servicios) {
-    
+
         const container = document.createElement('div');
         container.classList.add('blocky');
-    
+
         container.innerHTML = `
         <div class="shop-items">
             <div class="shop-item text-center" >
@@ -144,29 +257,31 @@ $(() => {
             </div>
         </div>
         `;
-    
+
         document.getElementById("serviceCart").appendChild(container);
 
     }
-    
+
     // ALMACENAR SERVICIOS 
-    const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+    const guardarLocal = (clave, valor) => {
+        localStorage.setItem(clave, valor)
+    };
 
     for (const servicio of servicios) {
 
         guardarLocal(servicio.id, JSON.stringify(servicio));
 
     }
-    
+
     // ALMACENAR ARRAY COMPLETO
-    
+
     guardarLocal("listaServicios", JSON.stringify(servicios));
-    
+
     let serviciosString = localStorage.getItem('listaServicios');
-    let serviciosParseados = JSON.parse(serviciosString); 
-    
+    let serviciosParseados = JSON.parse(serviciosString);
+
     // Ordenar de menor a mayor los precios de los servicios
-    
+
     const menorMayor = servicios.sort((servicio1, servicio2) => {
         return servicio1.precio - servicio2.precio
     })
@@ -175,21 +290,21 @@ $(() => {
     // Carrito
 
     let carrito = [];
-    
+
     const items = document.getElementById('serviceCart')
-    items.addEventListener('click', e => { 
+    items.addEventListener('click', e => {
         addCarrito(e);
     })
-    
+
     const addCarrito = e => {
-        if(e.target.classList.contains('btn-primary')) {
+        if (e.target.classList.contains('btn-primary')) {
             setCarrito(e.target.parentElement.parentElement.parentElement)
         }
         e.stopPropagation();
     }
-    
+
     const setCarrito = objeto => {
-        
+
         const prod = {
 
             id: objeto.querySelector('h5').id,
@@ -197,37 +312,37 @@ $(() => {
             precio: parseFloat(objeto.querySelector('.shop-item-price').textContent),
             cantidad: 1
 
-        } 
-    
+        }
+
         let yaExiste = false;
 
         for (const elemento of carrito) {
 
             if (prod.id == elemento.id) {
 
-                elemento.cantidad +=1;
+                elemento.cantidad += 1;
                 yaExiste = true;
 
             }
-            
+
         }
 
         if (!yaExiste) {
 
             carrito = [...carrito, prod];
-            
+
         }
 
         hacerCarrito();
 
-    } 
-    
-    function hacerCarrito(){
+    }
+
+    function hacerCarrito() {
 
         let precioTotal = 0;
 
         $('#totalsCart').html('');
-        
+
         carrito.forEach(el => {
 
             $('#totalsCart').append(
@@ -241,7 +356,7 @@ $(() => {
                 `
             )
 
-            precioTotal += el.precio*el.cantidad;
+            precioTotal += el.precio * el.cantidad;
 
         })
 
@@ -250,36 +365,36 @@ $(() => {
         asignarAccionEliminar();
 
     }
-    
-    function modificarPrecioTotal(precioTotal){
+
+    function modificarPrecioTotal(precioTotal) {
 
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
 
     }
 
     //Botón para remover el servicio del carrito
-    function asignarAccionEliminar(){
-        
+    function asignarAccionEliminar() {
+
         const addCarrito = e => {
-            if(e.target.classList.contains('btn-primary')) {
+            if (e.target.classList.contains('btn-primary')) {
                 setCarrito(e.target.parentElement.parentElement.parentElement)
             }
             e.stopPropagation()
         }
-        
+
         const setCarrito = objeto => {
-                const prod = {
+            const prod = {
                 id: objeto.querySelector('h5').id,
                 nombre: objeto.querySelector('h5').textContent,
                 precio: objeto.querySelector('p').textContent,
-            } 
+            }
 
             carrito.push(prod)
             /* carrito = [...carrito, prod] */
-            hacerCarrito() 
-        } 
-        
-        function hacerCarrito(){
+            hacerCarrito()
+        }
+
+        function hacerCarrito() {
             console.log(carrito)
             const totals = document.createElement('div')
             for (const item of carrito) {
@@ -295,7 +410,7 @@ $(() => {
             }
             document.getElementById("totalsCart").innerHTML = '';
             document.getElementById("totalsCart").appendChild(totals);
-        }  
+        }
 
         //Botón para remover el servicio del carrito
 
@@ -305,16 +420,39 @@ $(() => {
 
             let button = removeButtons[i];
 
-            button.addEventListener('click', function(event) {
+            button.addEventListener('click', function (event) {
 
                 let buttonClicked = event.target
 
                 buttonClicked.parentElement.parentElement.remove();
 
             })
-            
+
         }
 
     }
 
+    //boton animado de compra finalizada
+        function hover() {
+            $(".button").on("mouseenter", function () {
+                return $(this).addClass("hover");
+            });
+        }
+    
+        function hoverOff() {
+            $(".button").on("mouseleave", function () {
+                return $(this).removeClass("hover");
+            });
+        }
+    
+        function active() {
+            $(".button").on("click", function () {
+                return $(this).addClass("active");
+            });
+        }
+    
+        hover();
+        hoverOff();
+        active(); 
+    
 })

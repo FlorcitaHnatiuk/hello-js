@@ -23,7 +23,7 @@
 
 <body>
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg sticky-top border-bottom">
+    <nav class="colored navbar navbar-expand-lg sticky-top border-bottom">
         <div class="container-fluid">
             <p class="navbar-brand" href="#">mecMed</p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -58,8 +58,14 @@
     <main>
         <section class="colored row">
             <div class="row">
-                <div class="col-lg-8">
-                    <h1 class="big-heading">Sacá turno para llevar el auto al mecánico!</h1>
+                <div class="col-lg-6 m-5">
+                    <div class="marcas circle-dark-dashed">
+                        <div class="ruedaExt">
+                            <div class="rueda">
+                                <h1>tu taller</h1>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Formulario de ingreso -->
                 <div class="col-lg-4">
@@ -123,7 +129,7 @@
             </p>
         </form> -->
         <div class="oculto">
-            <h2 class="mt-5">Seleccioná los servicios</h2>
+            <h2 class="m-5">Seleccioná los servicios</h2>
             <div id="serviceCart"></div>
         
         
@@ -149,7 +155,15 @@
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">$0</span>
             </div>
-            <button class="btn btn-success btn-purchase" type="button">Listo!</button>
+
+            <div class="button">
+                    <div class="submit"><h3>Listo!</h3></div>
+                    <div class="arrow">
+                        <div class="top line"></div>
+                        <div class="bottom line"></div>
+                    </div>
+                </div> 
+
         </section>
     </div>
     </main>
