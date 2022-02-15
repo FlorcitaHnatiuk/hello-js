@@ -69,7 +69,7 @@ $(() => {
     }
 
     function bye() {
-        console.log(`Te deslogueaste`)
+        console.log(`Te deslogueaste`);
     }
 
     $(".mostrar").on("click", () => {
