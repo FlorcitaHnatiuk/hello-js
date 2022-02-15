@@ -57,55 +57,52 @@ $(() => {
     }
 
     let button = document.getElementById("btnLogin");
-
+    let button2 = document.getElementById("btnLogout");
+    let remember = document.getElementById('remember');
+    let espacio = " ";
+    
     button.addEventListener("click", clicked);
+    button2.addEventListener("click", bye);
 
     function clicked() {
         console.log(`Hola${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
     }
 
-    $(".mostrar").on("click", () => {
-        $('.oculto').show();
-    })
-
-    function deleteUser(storage) {
-
-        storage.clear();
-
+    function bye() {
+        console.log(`Te deslogueaste`)
     }
 
-    let remember = document.getElementById('remember');
+    $(".mostrar").on("click", () => {
+        $('.oculto').show();
+
+    })
 
     btnLogin.addEventListener("click", () => {
-
         if (remember.checked) {
-
             saveUser("localStorage");
-
         } else {
-
             saveUser("sessionStorage");
-
         }
-
     });
+
+    btnLogout.addEventListener("click", () => {
+        localStorage.clear();
+    })
 
     //NIGHT AND DAY
     const switchButton = document.getElementById('switch');
-
     switchButton.addEventListener('click', () => {
         document.body.classList.toggle('dark');
         switchButton.classList.toggle('active');
-
     });
 
-    let espacio = " ";
+
 
     // PATENTE VIEJA O NUEVA?
 
     //console.log(`${patente} ${patente.length}`);
 
-    function añoPatente() {
+/*     function añoPatente() {
 
         if (patente.length == 6) {
             alert("tu patente es previa al 2016");
@@ -114,9 +111,10 @@ $(() => {
         }
     }
 
-    añoPatente();
+    añoPatente(); */
 
     //Creacion de lista de servicios con AJAX y jquery
+
     const URL_SERVICIOS = "./json/services.json"
 
     $("#btnLogin").click(() => {
@@ -150,44 +148,26 @@ $(() => {
         });
     });
 
-    // ALMACENAR SERVICIOS 
-    /* const guardarLocal = (clave, valor) => {
-        localStorage.setItem(clave, valor)
-    };
-
-    for (const servicio of servicios) {
-
-        guardarLocal(servicio.id, JSON.stringify(servicio));
-
-    } */
-
-    // ALMACENAR ARRAY COMPLETO
-
-   /*  guardarLocal("listaServicios", JSON.stringify(servicios));
-
-    let serviciosString = localStorage.getItem('listaServicios');
-    let serviciosParseados = JSON.parse(serviciosString); */
-
-    // Ordenar de menor a mayor los precios de los servicios
-
-   /*  const menorMayor = servicios.sort((servicio1, servicio2) => {
-        return servicio1.precio - servicio2.precio
-    })
-    console.log(menorMayor); */
-
     // Carrito
 
     let carrito = [];
 
     const items = document.getElementById('serviceCart')
+
     items.addEventListener('click', e => {
+
         addCarrito(e);
+
     })
 
     const addCarrito = e => {
+
         if (e.target.classList.contains('btn-primary')) {
+
             setCarrito(e.target.parentElement.parentElement.parentElement)
+
         }
+
         e.stopPropagation();
     }
 
@@ -196,8 +176,11 @@ $(() => {
         const prod = {
 
             id: objeto.querySelector('h5').id,
+
             nombre: objeto.querySelector('h5').textContent,
+
             precio: parseFloat(objeto.querySelector('.shop-item-price').textContent),
+
             cantidad: 1
 
         }
@@ -264,17 +247,26 @@ $(() => {
     function asignarAccionEliminar() {
 
         const addCarrito = e => {
+
             if (e.target.classList.contains('btn-primary')) {
+
                 setCarrito(e.target.parentElement.parentElement.parentElement)
             }
+
             e.stopPropagation()
+
         }
 
         const setCarrito = objeto => {
+
             const prod = {
+
                 id: objeto.querySelector('h5').id,
+
                 nombre: objeto.querySelector('h5').textContent,
+
                 precio: objeto.querySelector('p').textContent,
+
             }
 
             carrito.push(prod)
