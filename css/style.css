@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -32,13 +33,10 @@ body {
   background: #B2B1B9; }
 
 body.dark {
-  background: black; }
-  body.dark h1,
-  body.dark h2 {
-    color: yellow; }
+  background: #B2B1B9; }
   body.dark p,
   body.dark span {
-    color: #EEEEEE; }
+    color: black; }
   body.dark .form-control {
     background-color: #EEEEEE; }
 
@@ -160,10 +158,12 @@ body.dark {
       border-radius: 50%;
       align-items: center;
       display: flex;
-      justify-content: center; }
-      .marcas .ruedaExt .rueda h1 {
-        font-size: 4em;
-        color: #FFD523; }
+      justify-content: center;
+      /* Esto está puesto en jquery...para probar
+            h1 {
+                font-size: 4em;
+                color: #FFD523;
+            } */ }
 
 h1,
 h2,

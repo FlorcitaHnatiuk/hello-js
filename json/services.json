@@ -14,19 +14,19 @@
     {
         "id": 3,
         "nombre": "Frenos",
-        "precio": 25000,
+        "precio": 5990,
         "tiempo": 3
     },
     {
         "id": 4,
         "nombre": "Alineación",
-        "precio": 10000,
+        "precio": 5699,
         "tiempo": 5
     },
     {
         "id": 5,
         "nombre": "Motor",
-        "precio": 80000,
+        "precio": 280000,
         "tiempo": 12
     },
     {
@@ -50,25 +50,25 @@
     {
         "id": 9,
         "nombre": "Pastillas",
-        "precio": 2000,
+        "precio": 2799,
         "tiempo": 1
     },
     {
         "id": 10,
         "nombre": "Bulones",
-        "precio": 2000,
+        "precio": 2392,
         "tiempo": 1
     },
     {
         "id": 11,
         "nombre": "Bujes",
-        "precio": 2000,
+        "precio": 3744,
         "tiempo": 1
     },
     {
         "id": 12,
         "nombre": "Cremallera",
-        "precio": 80000,
+        "precio": 23611,
         "tiempo": 2
     },
     {
@@ -76,5 +76,41 @@
         "nombre": "Bieletas",
         "precio": 80000,
         "tiempo": 2
+    },
+    {
+        "id": 14,
+        "nombre": "Perno y buje",
+        "precio": 3522,
+        "tiempo": 2
+    },
+    {
+        "id": 15,
+        "nombre": "Rotula",
+        "precio": 500,
+        "tiempo": 1
+    },
+    {
+        "id": 16,
+        "nombre": "Depresor",
+        "precio": 5990,
+        "tiempo": 2
+    },
+    {
+        "id": 17,
+        "nombre": "Precap",
+        "precio": 1883,
+        "tiempo": 2
+    },
+    {
+        "id": 18,
+        "nombre": "Semieje",
+        "precio": 16500,
+        "tiempo": 2
+    },
+    {
+        "id": 19,
+        "nombre": "Tren delantero",
+        "precio": 11500,
+        "tiempo": 6
     }
 ]

@@ -45,16 +45,11 @@ body {
 }
 
 body.dark {
-    background: black;
-
-    h1,
-    h2 {
-        color: yellow;
-    }
+    background: #B2B1B9;
 
     p,
     span {
-        color: #EEEEEE;
+        color: black;
     }
 
     .form-control {
@@ -202,10 +197,11 @@ body.dark {
             display: flex;
             justify-content: center;
 
+            /* Esto está puesto en jquery...para probar
             h1 {
                 font-size: 4em;
                 color: #FFD523;
-            }
+            } */
         }
     }
 }
