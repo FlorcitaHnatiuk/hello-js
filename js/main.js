@@ -112,22 +112,43 @@ $(() => {
         document.body.classList.toggle('dark');
 
         switchButton.classList.toggle('active');
+        //Guardar Night or day en LS
+        if(document.body.classList.contains('dark')){
+
+            localStorage.setItem('dark-mode', 'true');
+
+        } else {
+
+            localStorage.setItem('dark-mode', 'false');
+
+        }
 
     });
+    // Modo seleccionado capturado de LS
+    if(localStorage.getItem('dark-mode') === 'true'){
+
+        document.body.classList.add('dark');
+
+        switchButton.classList.add('active');
+
+    } else {
+
+        document.body.classList.remove('dark');
+
+        switchButton.classList.remove('active');
+    }
 
     // PATENTE VIEJA O NUEVA?
 
     //console.log(`${patente} ${patente.length}`);
 
 /*     function añoPatente() {
-
         if (patente.length == 6) {
             alert("tu patente es previa al 2016");
         } else if (patente.length == 7) {
             alert("tu patente es posterior al 2016");
         }
     }
-
     añoPatente(); */
 
     //Creacion de lista de servicios con AJAX y jquery
@@ -297,59 +318,8 @@ $(() => {
             document.getElementById("totalsCart").innerHTML = '';
 
             document.getElementById("totalsCart").appendChild(totals);
-        }
-
-        // ALMACENAR CARRITO
-        // Tendria que ir asociado con el boton listo para que sea guardado?
-        let saveButton = document.getElementById('save');
-        saveButton.addEventListener("click", guardarCarrito);
-
-        //CARGAR O INICIAR localStorage
-
-        function cargarListado() {
-
-            let listaServicios = JSON.parse(localStorage.getItem("listaServicios"));
-
-            if (listaServicios == null) {
-
-                return [];
-
-            }
-
-            return listaServicios;
-        }
-
-        //FUNCION GUARDAR EN LOCAL STORAGE 
-
-        function save(listaServicios) {
-
-            localStorage.setItem("listaServicios", JSON.stringify(listaServicios));
-
-            hacerCarrito(listaServicios);
 
         }
-
-        //FUNCION GUARDAR CARRITO
-
-        function guardarCarrito(e) {
-
-            e.preventDefault();
-
-            let nombre = document.querySelector(".card-item").value;
-
-            let precio = document.querySelector(".card-price").value;
-
-            let cantidad = document.querySelector(".card-quantity").value;
-
-            let listaServicios = cargarListado();
-
-            listaServicios.push(new Item(nombre, precio, cantidad));
-
-            save(listaServicios);
-
-        }
-
-        guardarCarrito();
 
         //Botón para remover el servicio del carrito
 
