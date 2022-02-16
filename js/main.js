@@ -64,39 +64,56 @@ $(() => {
     button.addEventListener("click", clicked);
     button2.addEventListener("click", bye);
 
+
+
     function clicked() {
+
         console.log(`Hola${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
+    
     }
 
     function bye() {
+
         console.log(`Te deslogueaste`);
+
     }
 
     $(".mostrar").on("click", () => {
+
         $('.oculto').show();
 
     })
 
     btnLogin.addEventListener("click", () => {
+
         if (remember.checked) {
+
             saveUser("localStorage");
+
         } else {
+
             saveUser("sessionStorage");
+
         }
+
     });
 
     btnLogout.addEventListener("click", () => {
+
         localStorage.clear();
+
     })
 
     //NIGHT AND DAY
     const switchButton = document.getElementById('switch');
+
     switchButton.addEventListener('click', () => {
+
         document.body.classList.toggle('dark');
+
         switchButton.classList.toggle('active');
+
     });
-
-
 
     // PATENTE VIEJA O NUEVA?
 
@@ -192,6 +209,7 @@ $(() => {
             if (prod.id == elemento.id) {
 
                 elemento.cantidad += 1;
+
                 yaExiste = true;
 
             }
@@ -243,7 +261,7 @@ $(() => {
 
     }
 
-    //Botón para remover el servicio del carrito
+
     function asignarAccionEliminar() {
 
         const addCarrito = e => {
@@ -255,27 +273,12 @@ $(() => {
 
             e.stopPropagation()
 
-        }
+        } 
 
-        const setCarrito = objeto => {
-
-            const prod = {
-
-                id: objeto.querySelector('h5').id,
-
-                nombre: objeto.querySelector('h5').textContent,
-
-                precio: objeto.querySelector('p').textContent,
-
-            }
-
-            carrito.push(prod)
-
-            hacerCarrito()
-        }
+        //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
 
         function hacerCarrito() {
-            console.log(carrito)
+
             const totals = document.createElement('div')
             for (const item of carrito) {
                 totals.classList.add('cart-items');
@@ -288,9 +291,65 @@ $(() => {
                         </div>
                 `;
             }
+
+            //console.log(carrito)
+
             document.getElementById("totalsCart").innerHTML = '';
+
             document.getElementById("totalsCart").appendChild(totals);
         }
+
+        // ALMACENAR CARRITO
+        // Tendria que ir asociado con el boton listo para que sea guardado?
+        let saveButton = document.getElementById('save');
+        saveButton.addEventListener("click", guardarCarrito);
+
+        //CARGAR O INICIAR localStorage
+
+        function cargarListado() {
+
+            let listaServicios = JSON.parse(localStorage.getItem("listaServicios"));
+
+            if (listaServicios == null) {
+
+                return [];
+
+            }
+
+            return listaServicios;
+        }
+
+        //FUNCION GUARDAR EN LOCAL STORAGE 
+
+        function save(listaServicios) {
+
+            localStorage.setItem("listaServicios", JSON.stringify(listaServicios));
+
+            hacerCarrito(listaServicios);
+
+        }
+
+        //FUNCION GUARDAR CARRITO
+
+        function guardarCarrito(e) {
+
+            e.preventDefault();
+
+            let nombre = document.querySelector(".card-item").value;
+
+            let precio = document.querySelector(".card-price").value;
+
+            let cantidad = document.querySelector(".card-quantity").value;
+
+            let listaServicios = cargarListado();
+
+            listaServicios.push(new Item(nombre, precio, cantidad));
+
+            save(listaServicios);
+
+        }
+
+        guardarCarrito();
 
         //Botón para remover el servicio del carrito
 
