@@ -306,14 +306,12 @@ $(() => {
                 totals.innerHTML += `
                         <div class="cart-row text-center">
                             <span class="cart-item cart-column">${item.nombre}</span>
-                            <span class="cart-price cart-column">${item.precio}</span>
+                            <span class="cart-price cart-column">$${item.precio}</span>
                             <span class="cart-quantity cart-column">${item.cantidad}<button class="btn btn-danger m-3">-</button></span>
-                            <span class="cart-quantity cart-column">Subtotal</span>
+                            <span class="cart-quantity cart-column">$${item.precio * item.cantidad}</span>
                         </div>
                 `;
             }
-
-            //console.log(carrito)
 
             document.getElementById("totalsCart").innerHTML = '';
 
@@ -323,11 +321,14 @@ $(() => {
 
         } 
 
-        hacerCarrito();
-
+        //Funcion para guardar el carrito en Local Storage
         function addLocalStorage(){
+
             localStorage.setItem('carrito', JSON.stringify(carrito))
+
         }
+
+        hacerCarrito();
 
         agregarAlCarrito();
 
