@@ -64,8 +64,6 @@ $(() => {
     button.addEventListener("click", clicked);
     button2.addEventListener("click", bye);
 
-
-
     function clicked() {
 
         console.log(`Hola${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
@@ -294,6 +292,8 @@ $(() => {
 
             e.stopPropagation()
 
+            addCarrito();
+
         } 
 
         //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
@@ -363,5 +363,29 @@ $(() => {
     hover();
     hoverOff();
     active();
+
+    //LOCAL STORAGE DE CARRITO
+
+    function addLocalStorage() {
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    }
+
+    window.onload = function () {
+
+        const storage = JSON.parse(localStorage.getItem('carrito'));
+
+        if (storage) {
+
+            carrito = storage;
+
+            carrito();
+
+        }
+
+        addLocalStorage();
+
+    }
 
 })
