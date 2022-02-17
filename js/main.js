@@ -319,42 +319,14 @@ $(() => {
 
             document.getElementById("totalsCart").appendChild(totals);
 
+            addLocalStorage();
+
         } 
 
         hacerCarrito();
 
-        function agregarAlCarrito(servicio) {
-
-            let contenidoLocal = JSON.parse(localStorage.getItem("cart-item"));
-
-            if (contenidoLocal == null) {
-
-                carrito.push(servicio);
-
-                localStorage.setItem("cart-item", JSON.stringify(carrito));
-
-                //console.log("servicio agregado");
-
-            } else {
-
-                const coincidencia = contenidoLocal.find(item => item.nombre);
-
-                if (coincidencia){
-
-                    console.log("servicio agregado");
-
-                } else {
-
-                    contenidoLocal.push(servicio);
-
-                    localStorage.setItem("cart-item", JSON.stringify(contenidoLocal));
-
-                    //console.log("servicio agregado");
-
-                } 
-
-            }
-
+        function addLocalStorage(){
+            localStorage.setItem('carrito', JSON.stringify(carrito))
         }
 
         agregarAlCarrito();

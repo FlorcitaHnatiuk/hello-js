@@ -176,7 +176,7 @@ h3 {
 .navbar {
   color: black; }
   .navbar a {
-    color: grey;
+    color: black !important;
     text-decoration: none; }
 
 div#text {
