@@ -225,7 +225,7 @@ $(() => {
 
         for (const elemento of carrito) {
 
-            if (prod.id == elemento.id) {
+            if (prod.id === elemento.id) {
 
                 elemento.cantidad += 1;
 
@@ -319,7 +319,45 @@ $(() => {
 
             document.getElementById("totalsCart").appendChild(totals);
 
+        } 
+
+        hacerCarrito();
+
+        function agregarAlCarrito(servicio) {
+
+            let contenidoLocal = JSON.parse(localStorage.getItem("cart-item"));
+
+            if (contenidoLocal == null) {
+
+                carrito.push(servicio);
+
+                localStorage.setItem("cart-item", JSON.stringify(carrito));
+
+                //console.log("servicio agregado");
+
+            } else {
+
+                const coincidencia = contenidoLocal.find(item => item.nombre);
+
+                if (coincidencia){
+
+                    console.log("servicio agregado");
+
+                } else {
+
+                    contenidoLocal.push(servicio);
+
+                    localStorage.setItem("cart-item", JSON.stringify(contenidoLocal));
+
+                    //console.log("servicio agregado");
+
+                } 
+
+            }
+
         }
+
+        agregarAlCarrito();
 
         //Botón para remover el servicio del carrito
 
@@ -363,29 +401,5 @@ $(() => {
     hover();
     hoverOff();
     active();
-
-    //LOCAL STORAGE DE CARRITO
-
-    function addLocalStorage() {
-
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-
-    }
-
-    window.onload = function () {
-
-        const storage = JSON.parse(localStorage.getItem('carrito'));
-
-        if (storage) {
-
-            carrito = storage;
-
-            carrito();
-
-        }
-
-        addLocalStorage();
-
-    }
 
 })
