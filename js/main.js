@@ -276,8 +276,11 @@ $(() => {
 
     function modificarPrecioTotal(precioTotal) {
 
-        document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
+        /* const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
 
+        console.log(nPrecio) */
+
+        document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
     }
 
 
@@ -351,6 +354,17 @@ $(() => {
     }
 
     }
+    //Boton vaciar carrito
+
+    const btnVaciar = document.getElementById('danger')
+
+    btnVaciar.addEventListener('click', () => {
+
+        carrito = []
+
+        localStorage.clear();
+        
+    })
 
     //boton animado de compra finalizada
     function hover() {
