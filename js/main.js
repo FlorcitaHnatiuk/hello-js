@@ -334,21 +334,21 @@ $(() => {
 
         //Botón para remover el servicio del carrito
 
-        let removeButtons = document.getElementsByClassName('btn-danger');
+    let removeButtons = document.getElementsByClassName('btn-danger');
 
-        for (let i = 0; i < removeButtons.length; i++) {
+    for (let i = 0; i < removeButtons.length; i++) {
 
-            let button = removeButtons[i];
+        let button = removeButtons[i];
 
-            button.addEventListener('click', function (event) {
+        button.addEventListener('click', function (event) {
 
-                let buttonClicked = event.target
+            let buttonClicked = event.target
 
-                buttonClicked.parentElement.parentElement.remove();
+            buttonClicked.parentElement.parentElement.remove();
 
-            })
+        })
 
-        }
+    }
 
     }
 
