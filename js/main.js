@@ -8,7 +8,7 @@ $(() => {
     })
 
     //Agrandar on hover el h1
-    $('.marcas').hover(bigger, original);
+    /* $('.marcas').hover(bigger, original); */
 
     function bigger() {
         $(this).css({
@@ -277,10 +277,10 @@ $(() => {
     function modificarPrecioTotal(precioTotal) {
 
         /* const nPrecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio,0)
-
         console.log(nPrecio) */
 
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
+        
     }
 
 
@@ -333,7 +333,7 @@ $(() => {
 
         hacerCarrito();
 
-        agregarAlCarrito();
+        //agregarAlCarrito();
 
         //Botón para remover el servicio del carrito
 

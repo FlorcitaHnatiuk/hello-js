@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "nombre": "Llantas",
+        "precio": 80000,
+        "tiempo": 2
+    },
+    {
+        "id": 2,
+        "nombre": "Neumáticos",
+        "precio": 20000,
+        "tiempo": 1
+    },
+    {
+        "id": 3,
+        "nombre": "Frenos",
+        "precio": 25000,
+        "tiempo": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Alineación",
+        "precio": 10000,
+        "tiempo": 5
+    },
+    {
+        "id": 5,
+        "nombre": "Motor",
+        "precio": 80000,
+        "tiempo": 12
+    },
+    {
+        "id": 6,
+        "nombre": "Service",
+        "precio": 60000,
+        "tiempo": 2
+    },
+    {
+        "id": 7,
+        "nombre": "Balanceo",
+        "precio": 2000,
+        "tiempo": 1
+    },
+    {
+        "id": 8,
+        "nombre": "Amortiguadores",
+        "precio": 2000,
+        "tiempo": 1
+    },
+    {
+        "id": 9,
+        "nombre": "Pastillas",
+        "precio": 2000,
+        "tiempo": 1
+    },
+    {
+        "id": 10,
+        "nombre": "Bulones",
+        "precio": 2000,
+        "tiempo": 1
+    },
+    {
+        "id": 11,
+        "nombre": "Bujes",
+        "precio": 2000,
+        "tiempo": 1
+    },
+    {
+        "id": 12,
+        "nombre": "Cremallera",
+        "precio": 80000,
+        "tiempo": 2
+    },
+    {
+        "id": 13,
+        "nombre": "Bieletas",
+        "precio": 80000,
+        "tiempo": 2
+    }
+]

@@ -18,33 +18,33 @@ a {
   text-decoration: none;
   color: black; }
   a:hover {
-    color: #FFD523 !important; }
+    color: #ffd523 !important; }
 
 body {
   width: 100%;
   display: block;
   margin: auto;
   min-height: 100vh;
-  font-family: 'Montserrat', sans-serif; }
+  font-family: "Montserrat", sans-serif; }
   body p {
     color: black; }
 
 .colored {
-  background: #B2B1B9; }
+  background: #b2b1b9; }
 
 body.dark {
-  background: #B2B1B9; }
+  background: #b2b1b9; }
   body.dark p,
   body.dark span {
     color: black; }
   body.dark .form-control {
-    background-color: #EEEEEE; }
+    background-color: #eeeeee; }
 
 .button {
   position: relative;
   height: 60px;
   width: 200px;
-  background: #FFD523 !important;
+  background: #ffd523 !important;
   border-radius: 8px;
   text-align: center;
   margin: 200px auto 0 auto;
@@ -115,7 +115,7 @@ body.dark {
   transform: rotate(90deg) translateY(70px); }
 
 .button.active {
-  background: #4CAF50; }
+  background: #4caf50; }
 
 .button.active .submit {
   opacity: 0; }
@@ -136,9 +136,11 @@ body.dark {
   align-items: center;
   display: flex;
   justify-content: center;
-  border: 5px dashed; }
+  border: 5px dashed;
+  border-color: grey;
+  border-color: whitesmoke; }
   .marcas .ruedaExt {
-    background-color: #2C2E43;
+    background-color: #2c2e43;
     width: 320px;
     height: 320px;
     -moz-border-radius: 50%;
@@ -148,7 +150,10 @@ body.dark {
     display: flex;
     justify-content: center;
     -webkit-box-shadow: 5px 5px 25px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000; }
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-color: #212529;
+    border-width: 10px;
+    border-style: inherit; }
     .marcas .ruedaExt .rueda {
       background-color: #595260;
       width: 280px;
@@ -159,6 +164,9 @@ body.dark {
       align-items: center;
       display: flex;
       justify-content: center;
+      border-width: 2px;
+      border-color: whitesmoke;
+      border-style: ridge;
       /* Esto está puesto en jquery...para probar
             h1 {
                 font-size: 4em;
@@ -168,7 +176,7 @@ body.dark {
 h1,
 h2,
 h3 {
-  font-family: 'Bangers', cursive; }
+  font-family: "Bangers", cursive; }
 
 .usuario {
   display: flex; }
@@ -207,7 +215,7 @@ div#text {
 
 .darkModeSwitch::after {
   display: block;
-  background: #B2B1B9;
+  background: #b2b1b9;
   width: 1.9rem;
   height: 1.9rem;
   position: absolute;
@@ -215,12 +223,12 @@ div#text {
   left: 0;
   right: unset;
   border-radius: 3rem;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5);
   content: ""; }
 
 .darkModeSwitch.active {
-  background: #FFD523; }
+  background: #ffd523; }
 
 .darkModeSwitch.active::after {
   left: unset;
@@ -295,7 +303,7 @@ div#text {
 
 .cart-item-title {
   color: #333;
-  margin-left: .5em;
+  margin-left: 0.5em;
   font-size: 1.2em; }
 
 .cart-item-image {
@@ -305,13 +313,13 @@ div#text {
 
 .btn-danger {
   color: white;
-  background-color: #EB5757;
+  background-color: #eb5757;
   border: none;
-  border-radius: .3em;
+  border-radius: 0.3em;
   font-weight: bold; }
 
 .btn-danger:hover {
-  background-color: #CC4C4C; }
+  background-color: #cc4c4c; }
 
 .hidden-cart-item {
   display: none; }
@@ -320,7 +328,7 @@ div#text {
   height: 34px;
   width: 50px;
   border-radius: 5px;
-  border: 1px solid #56CCF2;
+  border: 1px solid #56ccf2;
   background-color: #eee;
   color: #333;
   padding: 0;
@@ -354,29 +362,79 @@ div#text {
   margin: 40px auto 80px auto;
   font-size: 1em; }
 
+footer ul {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-items: center; }
+  footer ul li {
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    list-style-type: none;
+    margin-right: 20px;
+    line-height: 1.5rem;
+    font-size: 32px;
+    height: 32px;
+    width: 32px; }
+    footer ul li a {
+      text-decoration: none; }
+
+.botonMenu {
+  border-width: 1.5px;
+  border-color: black;
+  border-style: dashed;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.orgLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: -175px;
+  animation-name: rebote;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards; }
+
+.orgMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px; }
+
+.orgCentrado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+
+.blocky {
+  min-width: 195px; }
+
+.navegador {
+  width: 100vw; }
+
 footer {
-  padding: 1.5% 5%; }
-  footer ul {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-items: center; }
-    footer ul li {
-      display: -webkit-inline-box;
-      display: -moz-inline-box;
-      display: -webkit-inline-flex;
-      display: -ms-inline-flexbox;
-      display: inline-flex;
-      list-style-type: none;
-      margin-right: 20px;
-      line-height: 1.5rem;
-      font-size: 32px;
-      height: 32px;
-      width: 32px; }
-      footer ul li a {
-        text-decoration: none; }
+  width: 100vw; }
+
+.rueda > h1 {
+  color: gold;
+  -webkit-text-stroke: 3.5px;
+  -webkit-text-stroke-color: black; }
+
+@keyframes rebote {
+  0% {
+    transform: translateY(0); }
+  30% {
+    transform: translateY(-50px); } }
