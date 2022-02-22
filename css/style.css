@@ -155,7 +155,9 @@ body.dark {
     border-width: 10px;
     border-style: inherit; }
     .marcas .ruedaExt .rueda {
-      background-color: #595260;
+      background-image: url(../images/llantablanca.png);
+      background-repeat: no-repeat;
+      background-size: cover;
       width: 280px;
       height: 280px;
       -moz-border-radius: 50%;
@@ -423,7 +425,11 @@ footer ul {
   min-width: 195px; }
 
 .navegador {
-  width: 100vw; }
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 15px; }
 
 footer {
   width: 100vw; }

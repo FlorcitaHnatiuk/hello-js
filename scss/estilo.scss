@@ -193,7 +193,9 @@ body.dark {
         border-style: inherit;
 
         .rueda {
-            background-color: #595260;
+            background-image: url(../images/llantablanca.png);
+            background-repeat: no-repeat;
+            background-size: cover;
             width: 280px;
             height: 280px;
             -moz-border-radius: 50%;
@@ -507,11 +509,17 @@ footer {
 
 .navegador {
     width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
 }
 
 footer {
     width: 100vw;
 }
+
+
 
 .rueda>h1 {
     color: gold;

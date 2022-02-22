@@ -310,19 +310,39 @@ $(() => {
                         <div class="cart-row text-center">
                             <span class="cart-item cart-column">${item.nombre}</span>
                             <span class="cart-price cart-column">$${item.precio}</span>
-                            <span class="cart-quantity cart-column">${item.cantidad}<button class="btn btn-danger m-3">-</button></span>
+                            <span class="cart-quantity cart-column">${item.cantidad}<button id="${item.nombre}" class="btn btn-danger m-3 boton-menos">-</button></span>
                             <span class="cart-quantity cart-column">$${item.precio * item.cantidad}</span>
                         </div>
                 `;
             }
-
+            
             document.getElementById("totalsCart").innerHTML = '';
-
+            
             document.getElementById("totalsCart").appendChild(totals);
+
+            const botones = document.getElementsByClassName("boton-menos");
+            for (const boton of botones) {
+                boton.addEventListener("click", (e) => {
+                    const servicio = e.target.id;
+                    carrito = carrito.filter(item => {
+                        if(item.nombre !== servicio){
+                            return item;
+                        } else if (item.nombre === servicio) {
+                            item.cantidad -= 1;
+                            if(item.cantidad === 0){
+                                return false;
+                            } else {
+                                return item;
+                            }
+                        }
+                    });
+                    hacerCarrito();
+                })
+            }
 
             addLocalStorage();
 
-        } 
+        }
 
         //Funcion para guardar el carrito en Local Storage
         function addLocalStorage(){
