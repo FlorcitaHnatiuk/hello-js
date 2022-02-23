@@ -49,7 +49,7 @@ $(() => {
 
     function clicked() {
 
-        console.log(`Hola${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
+        console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
     
     }
 
@@ -105,6 +105,7 @@ $(() => {
         }
 
     });
+
     // Modo seleccionado capturado de LS
     if(localStorage.getItem('dark-mode') === 'true'){
 
@@ -118,19 +119,6 @@ $(() => {
 
         switchButton.classList.remove('active');
     }
-
-    // PATENTE VIEJA O NUEVA?
-
-    //console.log(`${patente} ${patente.length}`);
-
-/*     function añoPatente() {
-        if (patente.length == 6) {
-            alert("tu patente es previa al 2016");
-        } else if (patente.length == 7) {
-            alert("tu patente es posterior al 2016");
-        }
-    }
-    añoPatente(); */
 
     //Creacion de lista de servicios con AJAX y jquery
 
