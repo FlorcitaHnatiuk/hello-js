@@ -7,23 +7,6 @@ $(() => {
         'color': '#FFD523'
     })
 
-    //Agrandar on hover el h1
-    /* $('.marcas').hover(bigger, original); */
-
-    function bigger() {
-        $(this).css({
-            height: '+=10%',
-            width: '+=10%'
-        });
-    }
-
-    function original() {
-        $(this).css({
-            height: "",
-            width: ""
-        });
-    }
-
     function saveUser(storage) {
 
         const nombre = document.getElementById('nombre').value;
@@ -321,23 +304,41 @@ $(() => {
             document.getElementById("totalsCart").appendChild(totals);
 
             const botones = document.getElementsByClassName("boton-menos");
+
             for (const boton of botones) {
+
                 boton.addEventListener("click", (e) => {
+
                     const servicio = e.target.id;
+
                     carrito = carrito.filter(item => {
+
                         if(item.nombre !== servicio){
+
                             return item;
+
                         } else if (item.nombre === servicio) {
+
                             item.cantidad -= 1;
+
                             if(item.cantidad === 0){
+
                                 return false;
+
                             } else {
+
                                 return item;
+
                             }
+
                         }
+
                     });
+
                     hacerCarrito();
+
                 })
+
             }
 
             addLocalStorage();
