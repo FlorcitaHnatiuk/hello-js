@@ -43,14 +43,14 @@ $(() => {
     let button2 = document.getElementById("btnLogout");
     let remember = document.getElementById('remember');
     let espacio = " ";
-    
+
     button.addEventListener("click", clicked);
     button2.addEventListener("click", bye);
 
     function clicked() {
 
         console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
-    
+
     }
 
     function bye() {
@@ -94,7 +94,7 @@ $(() => {
 
         switchButton.classList.toggle('active');
         //Guardar Night or day en LS
-        if(document.body.classList.contains('dark')){
+        if (document.body.classList.contains('dark')) {
 
             localStorage.setItem('dark-mode', 'true');
 
@@ -107,7 +107,7 @@ $(() => {
     });
 
     // Modo seleccionado capturado de LS
-    if(localStorage.getItem('dark-mode') === 'true'){
+    if (localStorage.getItem('dark-mode') === 'true') {
 
         document.body.classList.add('dark');
 
@@ -132,7 +132,7 @@ $(() => {
 
                     const container = document.createElement('div');
                     container.classList.add('blocky');
-            
+
                     container.innerHTML = `
                     <div class="shop-items">
                         <div class="shop-item text-center" >
@@ -147,9 +147,9 @@ $(() => {
                         </div>
                     </div>
                     `;
-            
+
                     document.getElementById("serviceCart").appendChild(container);
-            
+
                 }
             }
         });
@@ -235,6 +235,7 @@ $(() => {
                 `
             )
 
+            //Sumar totales
             precioTotal += el.precio * el.cantidad;
 
         })
@@ -248,9 +249,8 @@ $(() => {
     function modificarPrecioTotal(precioTotal) {
 
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
-        
-    }
 
+    }
 
     function asignarAccionEliminar() {
 
@@ -265,7 +265,7 @@ $(() => {
 
             addCarrito();
 
-        } 
+        }
 
         //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
 
@@ -283,9 +283,9 @@ $(() => {
                         </div>
                 `;
             }
-            
+
             document.getElementById("totalsCart").innerHTML = '';
-            
+
             document.getElementById("totalsCart").appendChild(totals);
 
             const botones = document.getElementsByClassName("boton-menos");
@@ -298,7 +298,7 @@ $(() => {
 
                     carrito = carrito.filter(item => {
 
-                        if(item.nombre !== servicio){
+                        if (item.nombre !== servicio) {
 
                             return item;
 
@@ -306,7 +306,7 @@ $(() => {
 
                             item.cantidad -= 1;
 
-                            if(item.cantidad === 0){
+                            if (item.cantidad === 0) {
 
                                 return false;
 
@@ -331,7 +331,7 @@ $(() => {
         }
 
         //Funcion para guardar el carrito en Local Storage
-        function addLocalStorage(){
+        function addLocalStorage() {
 
             localStorage.setItem('carrito', JSON.stringify(carrito))
 
@@ -341,34 +341,37 @@ $(() => {
 
         //Botón para remover el servicio del carrito
 
-    let removeButtons = document.getElementsByClassName('btn-danger');
+        let removeButtons = document.getElementsByClassName('btn-danger');
 
-    for (let i = 0; i < removeButtons.length; i++) {
+        for (let i = 0; i < removeButtons.length; i++) {
 
-        let button = removeButtons[i];
+            let button = removeButtons[i];
 
-        button.addEventListener('click', function (event) {
+            button.addEventListener('click', function (event) {
 
-            let buttonClicked = event.target
+                let buttonClicked = event.target
 
-            buttonClicked.parentElement.parentElement.remove();
+                buttonClicked.parentElement.parentElement.remove();
 
-        })
+            })
+
+        }
 
     }
 
-    }
+
     //Boton vaciar carrito
 
     const btnVaciar = document.getElementById('danger')
 
     btnVaciar.addEventListener('click', () => {
 
-        carrito = []
+        carrito = [];
 
         localStorage.clear();
-        
+
     })
+
 
     //boton animado de compra finalizada
     function hover() {
