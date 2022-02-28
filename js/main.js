@@ -222,7 +222,6 @@ $(() => {
         //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
 
         function hacerCarrito() {
-
             const totals = document.createElement('div')
             for (const item of carrito) {
                 totals.classList.add('cart-items');
@@ -286,7 +285,7 @@ $(() => {
     btnVaciar.addEventListener('click', () => {
         carrito = [];
         localStorage.clear();
-        $('#totalsCart').html('');
+        totalsCart.innerHTML += `$${espacio}`
     })
 
 
