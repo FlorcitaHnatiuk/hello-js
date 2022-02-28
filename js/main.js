@@ -199,6 +199,15 @@ $(() => {
 
     function modificarPrecioTotal(precioTotal) {
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
+        let costoCarrito = localStorage.getItem('modificarPrecioTotal', precioTotal);
+        if (costoCarrito != null) {
+            costoCarrito = parseInt(costoCarrito)
+            console.log(typeof costoCarrito)
+            console.log("El monto es de", costoCarrito)
+            localStorage.setItem("modificarPrecioTotal", precioTotal)
+        } else {
+            localStorage.setItem("modificarPrecioTotal", precioTotal);
+        } 
     }
 
     function asignarAccionEliminar() {
