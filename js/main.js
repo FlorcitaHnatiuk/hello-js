@@ -42,81 +42,66 @@ $(() => {
     let button = document.getElementById("btnLogin");
     let button2 = document.getElementById("btnLogout");
     let remember = document.getElementById('remember');
+    let finish = document.getElementById('save');
     let espacio = " ";
 
     button.addEventListener("click", clicked);
     button2.addEventListener("click", bye);
+    finish.addEventListener("click", ready);
 
     function clicked() {
-
         console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
-
     }
 
     function bye() {
-
         console.log(`Te deslogueaste`);
+    }
 
+    function ready() {
+        swal('Gracias por confiar en nosotros. Tu presupuesto ha sido realizado con éxito')
+        var cartItems = document.getElementsByClassName('cart-items')[0]
+        while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+            }
+        modificarPrecioTotal()
     }
 
     $(".mostrar").on("click", () => {
-
         $('.oculto').show();
-
     })
 
     btnLogin.addEventListener("click", () => {
-
         if (remember.checked) {
-
             saveUser("localStorage");
-
         } else {
-
             saveUser("sessionStorage");
-
         }
 
     });
 
     btnLogout.addEventListener("click", () => {
-
         localStorage.clear();
-
     })
 
     //NIGHT AND DAY
     const switchButton = document.getElementById('switch');
-
     switchButton.addEventListener('click', () => {
-
         document.body.classList.toggle('dark');
-
         switchButton.classList.toggle('active');
         //Guardar Night or day en LS
         if (document.body.classList.contains('dark')) {
-
             localStorage.setItem('dark-mode', 'true');
-
         } else {
-
             localStorage.setItem('dark-mode', 'false');
-
         }
-
     });
 
     // Modo seleccionado capturado de LS
     if (localStorage.getItem('dark-mode') === 'true') {
-
         document.body.classList.add('dark');
-
         switchButton.classList.add('active');
-
     } else {
-
         document.body.classList.remove('dark');
-
         switchButton.classList.remove('active');
     }
 
@@ -158,72 +143,43 @@ $(() => {
     // Carrito
 
     let carrito = [];
-
     const items = document.getElementById('serviceCart')
-
     items.addEventListener('click', e => {
-
         addCarrito(e);
-
     })
 
     const addCarrito = e => {
-
         if (e.target.classList.contains('btn-primary')) {
-
             setCarrito(e.target.parentElement.parentElement.parentElement)
-
         }
-
         e.stopPropagation();
     }
 
     const setCarrito = objeto => {
-
         const prod = {
-
             id: objeto.querySelector('h5').id,
-
             nombre: objeto.querySelector('h5').textContent,
-
             precio: parseFloat(objeto.querySelector('.shop-item-price').textContent),
-
             cantidad: 1
-
         }
 
         let yaExiste = false;
-
         for (const elemento of carrito) {
-
             if (prod.id === elemento.id) {
-
                 elemento.cantidad += 1;
-
                 yaExiste = true;
-
             }
-
         }
-
         if (!yaExiste) {
-
             carrito = [...carrito, prod];
-
         }
-
         hacerCarrito();
-
     }
 
     function hacerCarrito() {
-
         let precioTotal = 0;
-
         $('#totalsCart').html('');
-
         carrito.forEach(el => {
-
             $('#totalsCart').append(
                 `
                 <div class="cart-row text-center">
@@ -234,37 +190,24 @@ $(() => {
                 </div>
                 `
             )
-
             //Sumar totales
             precioTotal += el.precio * el.cantidad;
-
         })
-
         modificarPrecioTotal(precioTotal);
-
         asignarAccionEliminar();
-
     }
 
     function modificarPrecioTotal(precioTotal) {
-
         document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
-
     }
 
     function asignarAccionEliminar() {
-
         const addCarrito = e => {
-
             if (e.target.classList.contains('btn-primary')) {
-
                 setCarrito(e.target.parentElement.parentElement.parentElement)
             }
-
             e.stopPropagation()
-
             addCarrito();
-
         }
 
         //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
@@ -285,91 +228,56 @@ $(() => {
             }
 
             document.getElementById("totalsCart").innerHTML = '';
-
             document.getElementById("totalsCart").appendChild(totals);
 
             const botones = document.getElementsByClassName("boton-menos");
-
             for (const boton of botones) {
-
                 boton.addEventListener("click", (e) => {
-
                     const servicio = e.target.id;
-
                     carrito = carrito.filter(item => {
-
                         if (item.nombre !== servicio) {
-
                             return item;
-
                         } else if (item.nombre === servicio) {
-
                             item.cantidad -= 1;
-
                             if (item.cantidad === 0) {
-
                                 return false;
-
                             } else {
-
                                 return item;
-
                             }
-
                         }
-
                     });
-
                     hacerCarrito();
-
                 })
-
             }
-
             addLocalStorage();
-
         }
 
         //Funcion para guardar el carrito en Local Storage
         function addLocalStorage() {
-
             localStorage.setItem('carrito', JSON.stringify(carrito))
-
         }
-
         hacerCarrito();
 
         //Botón para remover el servicio del carrito
 
         let removeButtons = document.getElementsByClassName('btn-danger');
-
         for (let i = 0; i < removeButtons.length; i++) {
-
             let button = removeButtons[i];
-
             button.addEventListener('click', function (event) {
-
                 let buttonClicked = event.target
-
                 buttonClicked.parentElement.parentElement.remove();
-
             })
-
         }
-
     }
 
 
     //Boton vaciar carrito
 
     const btnVaciar = document.getElementById('danger')
-
     btnVaciar.addEventListener('click', () => {
-
         carrito = [];
-
         localStorage.clear();
-
+        $('#totalsCart').html('');
     })
 
 
@@ -395,5 +303,7 @@ $(() => {
     hover();
     hoverOff();
     active();
+
+    
 
 })
