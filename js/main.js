@@ -59,10 +59,6 @@ $(() => {
 
     function ready() {
         swal('Gracias por confiar en nosotros. Tu presupuesto ha sido realizado con éxito')
-        var cartItems = document.getElementsByClassName('cart-items')[0]
-        while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-            }
     }
 
     $(".mostrar").on("click", () => {
@@ -201,8 +197,6 @@ $(() => {
         let costoCarrito = localStorage.getItem('modificarPrecioTotal', precioTotal);
         if (costoCarrito != null) {
             costoCarrito = parseInt(costoCarrito)
-            /* console.log(typeof costoCarrito)
-            console.log("El monto es de", costoCarrito) */
             localStorage.setItem("modificarPrecioTotal", precioTotal)
         } else {
             localStorage.setItem("modificarPrecioTotal", precioTotal);
