@@ -63,7 +63,6 @@ $(() => {
         while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
             }
-        modificarPrecioTotal()
     }
 
     $(".mostrar").on("click", () => {
@@ -202,8 +201,8 @@ $(() => {
         let costoCarrito = localStorage.getItem('modificarPrecioTotal', precioTotal);
         if (costoCarrito != null) {
             costoCarrito = parseInt(costoCarrito)
-            console.log(typeof costoCarrito)
-            console.log("El monto es de", costoCarrito)
+            /* console.log(typeof costoCarrito)
+            console.log("El monto es de", costoCarrito) */
             localStorage.setItem("modificarPrecioTotal", precioTotal)
         } else {
             localStorage.setItem("modificarPrecioTotal", precioTotal);
@@ -278,7 +277,6 @@ $(() => {
         }
     }
 
-
     //Boton vaciar carrito
 
     const btnVaciar = document.getElementById('danger')
@@ -311,7 +309,5 @@ $(() => {
     hover();
     hoverOff();
     active();
-
-    
 
 })
