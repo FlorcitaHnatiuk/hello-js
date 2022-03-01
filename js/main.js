@@ -265,6 +265,7 @@ $(() => {
         for (let i = 0; i < removeButtons.length; i++) {
             let button = removeButtons[i];
             button.addEventListener('click', function (event) {
+                //console.log("remove button clicked")
                 let buttonClicked = event.target
                 buttonClicked.parentElement.parentElement.remove();
             })
