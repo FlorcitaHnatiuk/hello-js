@@ -216,6 +216,8 @@ $(() => {
 
         function hacerCarrito() {
             const totals = document.createElement('div')
+            //  Creamos la variable para ir acumulando el total
+            let totalCarrito = 0
             for (const item of carrito) {
                 totals.classList.add('cart-items');
                 totals.innerHTML += `
@@ -226,8 +228,11 @@ $(() => {
                             <span class="cart-quantity cart-column">$${item.precio * item.cantidad}</span>
                         </div>
                 `;
+                //  Por cada item tomamos el valor, multiplicamos el precio por la cantidad
+                totalCarrito += item.precio * item.cantidad;
             }
-
+            //  Finalmente mostramos el total en el DOM
+            document.getElementById('finish').innerHTML = totalCarrito;
             document.getElementById("totalsCart").innerHTML = '';
             document.getElementById("totalsCart").appendChild(totals);
 
