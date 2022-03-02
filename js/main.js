@@ -1,211 +1,313 @@
+$(() => {
 
+    swal("Hola! los valores que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
-    $(() => {
+    $('h1').css({
+        'font-size': '4em',
+        'color': '#FFD523'
+    })
 
+    function saveUser(storage) {
 
-        swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const email = document.getElementById('email').value;
+        const marca = document.getElementById('marca').value;
+        const modelo = document.getElementById('modelo').value;
+        const patente = document.getElementById('patente').value.toUpperCase();
+        const password = document.getElementById('password').value;
 
-        function saveUser(storage) {
-            const nombre = document.getElementById('nombre').value;
-            const apellido = document.getElementById('apellido').value;
-            const email = document.getElementById('email').value;
-            const marca = document.getElementById('marca').value;
-            const modelo = document.getElementById('modelo').value;
-            const patente = document.getElementById('patente').value.toUpperCase();
-            const password = document.getElementById('password').value;
-            const usuario = {
-                'nombre': nombre,
-                'apellido': apellido,
-                'email': email,
-                'marca': marca,
-                'modelo': modelo,
-                'patente': patente,
-                'password': password
-            };
-            console.log(usuario);
-            if (storage === "sessionStorage") {
-                sessionStorage.setItem("user", JSON.stringify(usuario));
-            }
-            if (storage === "localStorage") {
-                localStorage.setItem("user", JSON.stringify(usuario));
-            }
+        const usuario = {
+            'nombre': nombre,
+            'apellido': apellido,
+            'email': email,
+            'marca': marca,
+            'modelo': modelo,
+            'patente': patente,
+            'password': password
+        };
+
+        if (storage === "sessionStorage") {
+
+            sessionStorage.setItem("user", JSON.stringify(usuario));
+
+        } else {
+
+            localStorage.setItem("user", JSON.stringify(usuario));
+
         }
-        
-        //Hello hello
-        
-        let button = document.getElementById("btnLogin");
-        button.addEventListener("click", clicked);
-        
-        function clicked(){
-            console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu 
-            ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
+
+    }
+
+    let button = document.getElementById("btnLogin");
+    let button2 = document.getElementById("btnLogout");
+    let remember = document.getElementById('remember');
+    let finish = document.getElementById('save');
+    let espacio = " ";
+
+    button.addEventListener("click", clicked);
+    button2.addEventListener("click", bye);
+    finish.addEventListener("click", ready);
+
+    function clicked() {
+        console.log(`Hola${espacio}${document.getElementById('nombre').value}, gracias por sumarte. Tu ${document.getElementById('marca').value}${espacio}${document.getElementById('modelo').value} ya tiene su usuario creado.`);
+    }
+
+    function bye() {
+        console.log(`Te deslogueaste`);
+    }
+
+    function ready() {
+        swal('Gracias por confiar en nosotros. Tu presupuesto ha sido realizado con éxito');
+    }
+
+    $(".mostrar").on("click", () => {
+        $('.oculto').show();
+    })
+
+    btnLogin.addEventListener("click", () => {
+        if (remember.checked) {
+            saveUser("localStorage");
+        } else {
+            saveUser("sessionStorage");
         }
-        
-        function deleteUser(storage) {
-            storage.clear();
+
+    });
+
+    btnLogout.addEventListener("click", () => {
+        localStorage.clear();
+    })
+
+    //NIGHT AND DAY
+    const switchButton = document.getElementById('switch');
+    switchButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        switchButton.classList.toggle('active');
+        //Guardar Night or day en LS
+        if (document.body.classList.contains('dark')) {
+            localStorage.setItem('dark-mode', 'true');
+        } else {
+            localStorage.setItem('dark-mode', 'false');
         }
-        
-        let remember = document.getElementById('remember');
-        
-        btnLogin.addEventListener("click", () => {
-            if(remember.checked) {
-                saveUser("localStorage");
-            } else {
-                saveUser("sessionStorage");
-            }
-        });
-        
-        //NIGHT AND DAY
-        const switchButton = document.getElementById('switch');
-        
-        switchButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            switchButton.classList.toggle('active');
-        }); 
-        
-        
-        let espacio = " ";
-        
-        // PATENTE VIEJA O NUEVA?
-        
-        //console.log(`${patente} ${patente.length}`);
-        
-        function añoPatente() {
-            if (patente.length == 6) {
-                alert("tu patente es previa al 2016")
-            } else if (patente.length == 7) {
-                alert("tu patente es posterior al 2016")
-            }
-        } 
-        añoPatente(); 
-        
-        // Creación de servicios => mandar a JSON?
-        
-        let servicios = [
-            {id: 1, nombre: "Llantas",          precio: 80000,  tiempo: 2},
-            {id: 2, nombre: "Neumáticos",       precio: 20000,  tiempo: 1},
-            {id: 3, nombre: "Frenos",           precio: 5990 ,  tiempo: 3},
-            {id: 4, nombre: "Alineación",       precio: 10000,  tiempo: 5},
-            {id: 5, nombre: "Motor",            precio: 80000,  tiempo: 12},
-            {id: 6, nombre: "Service",          precio: 60000,  tiempo: 2},
-            {id: 7, nombre: "Balanceo",         precio: 2000,   tiempo: 1},
-            {id: 8, nombre: "Amortiguadores",   precio: 2000,   tiempo: 1},
-            {id: 9, nombre: "Pastillas",        precio: 2000,   tiempo: 1},
-            {id: 10, nombre: "Bulones",         precio: 2000,   tiempo: 1},
-            {id: 11, nombre: "Bujes",           precio: 2000,   tiempo: 1},
-            {id: 12, nombre: "Cremallera",      precio: 80000,  tiempo: 2},
-            {id: 13, nombre: "Bieletas",        precio: 80000,  tiempo: 2},
-            {id: 14, nombre: "Perno y buje",    precio: 80000,  tiempo: 2},
-            {id: 15, nombre: "Rotula",          precio: 500,    tiempo: 1},
-            {id: 16, nombre: "Depresor",        precio: 5990,   tiempo: 2},
-            {id: 17, nombre: "Precap",          precio: 1883,   tiempo: 2},
-            {id: 18, nombre: "Semiejes",        precio: 80000,  tiempo: 2},
-            {id: 19, nombre: "Tren delantero",  precio: 11500,  tiempo: 6}
-        ]
-        
-        for (const servicio of servicios) {
-        
-            const container = document.createElement('div');
-            container.classList.add('blocky');
-            //console.log(element.className);
-        
-            container.innerHTML = `
-            <div class="shop-items">
-                <div class="shop-item text-center" >
-                    <h5 class="shop-item-title" id="${servicio.id}">${servicio.nombre}</h5>
+    });
+
+    // Modo seleccionado capturado de LS
+    if (localStorage.getItem('dark-mode') === 'true') {
+        document.body.classList.add('dark');
+        switchButton.classList.add('active');
+    } else {
+        document.body.classList.remove('dark');
+        switchButton.classList.remove('active');
+    }
+
+    //Creacion de lista de servicios con AJAX y jquery
+
+    const URL_SERVICIOS = "./json/services.json"
+
+    $("#btnLogin").click(() => {
+        $.get(URL_SERVICIOS, function (res, state) {
+            if (state == "success") {
+                let servicios = res;
+                for (const servicio of servicios) {
+
+                    const container = document.createElement('div');
+                    container.classList.add('blocky');
+
+                    container.innerHTML = `
+                    <div class="shop-items">
+                        <div class="shop-item text-center" >
+                            <h5 class="shop-item-title" id="${servicio.id}">${servicio.nombre}</h5>
                             <div class="shop-item-details">
-                                <p class="shop-item-price">$${servicio.precio}</p> 
+                                <p>$</p>
+                                <p class="shop-item-price">${servicio.precio}</p> 
                             </div>
                             <div>
                                 <span><button class="btn btn-primary shop-item-button" type="button">+</button></span>
                             </div>
                         </div>
+                    </div>
                     `;
-        
-            document.getElementById("serviceCart").appendChild(container);
+
+                    document.getElementById("serviceCart").appendChild(container);
+
+                }
+            }
+        });
+    });
+
+    // Carrito
+
+    let carrito = [];
+    const items = document.getElementById('serviceCart')
+    items.addEventListener('click', e => {
+        addCarrito(e);
+    })
+
+    const addCarrito = e => {
+        if (e.target.classList.contains('btn-primary')) {
+            setCarrito(e.target.parentElement.parentElement.parentElement)
         }
-        
-        //solo una prueba de jquery
-        console.log($('.shop-items'));
-        
-        // ALMACENAR SERVICIOS 
-        const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
-        for (const nombre of servicios) {
-            guardarLocal(nombre.id, JSON.stringify(nombre));
+        e.stopPropagation();
+    }
+
+    const setCarrito = objeto => {
+        const prod = {
+            id: objeto.querySelector('h5').id,
+            nombre: objeto.querySelector('h5').textContent,
+            precio: parseFloat(objeto.querySelector('.shop-item-price').textContent),
+            cantidad: 1
         }
-        
-        // ALMACENAR ARRAY COMPLETO
-        
-        guardarLocal("listaServicios", JSON.stringify(servicios));
-        
-        let serviciosString = localStorage.getItem('listaServicios');
-        let serviciosParseados = JSON.parse(serviciosString); 
-        
-        // Ordenar de menor a mayor los precios de los servicios
-        
-        const menorMayor = servicios.sort((servicio1, servicio2) => {
-            return servicio1.precio - servicio2.precio
+
+        let yaExiste = false;
+        for (const elemento of carrito) {
+            if (prod.id === elemento.id) {
+                elemento.cantidad += 1;
+                yaExiste = true;
+            }
+        }
+        if (!yaExiste) {
+            carrito = [...carrito, prod];
+        }
+        hacerCarrito();
+    }
+
+    function hacerCarrito() {
+        let precioTotal = 0;
+        $('#totalsCart').html('');
+        carrito.forEach(el => {
+            $('#totalsCart').append(
+                `
+                <div class="cart-row text-center">
+                <span class="cart-item cart-column">${el.nombre}</span>
+                <span class="cart-price cart-column">$${el.precio}</span>
+                <span class="cart-quantity cart-column">${el.cantidad}<button class="btn btn-danger m-3">-</button></span>
+                <span class="cart-quantity cart-column">$${el.precio * el.cantidad}</span>
+                </div>
+                `
+            )
+            //Sumar totales
+            precioTotal += el.precio * el.cantidad;
         })
-        console.log(menorMayor);
-    
-        // Carrito
-        
-        const it = document.getElementById('items')
-        let carrito = [];
-        
-        const items = document.getElementById('serviceCart')
-        items.addEventListener('click', e => { 
-            addCarrito(e)
-        })
-        
+        modificarPrecioTotal(precioTotal);
+        asignarAccionEliminar();
+    }
+
+    function modificarPrecioTotal(precioTotal) {
+        document.getElementsByClassName('cart-total-price')[0].innerHTML = precioTotal;
+        let costoCarrito = localStorage.getItem('modificarPrecioTotal', precioTotal);
+        if (costoCarrito != null) {
+            costoCarrito = parseInt(costoCarrito)
+            localStorage.setItem("modificarPrecioTotal", precioTotal)
+        } else {
+            localStorage.setItem("modificarPrecioTotal", precioTotal);
+        } 
+    }
+
+    function asignarAccionEliminar() {
         const addCarrito = e => {
-            if(e.target.classList.contains('btn-primary')) {
+            if (e.target.classList.contains('btn-primary')) {
                 setCarrito(e.target.parentElement.parentElement.parentElement)
             }
             e.stopPropagation()
+            addCarrito();
         }
-        
-        const setCarrito = objeto => {
-                const prod = {
-                id: objeto.querySelector('h5').id,
-                nombre: objeto.querySelector('h5').textContent,
-                precio: objeto.querySelector('p').textContent,
-            } 
 
-            carrito.push(prod)
-            /* carrito = [...carrito, prod] */
-            hacerCarrito() 
-        } 
-        
-        function hacerCarrito(){
-            console.log(carrito)
+        //FUNCION ARMAR LISTA DE SERVICIOS SELECCIONADOS
+
+        function hacerCarrito() {
             const totals = document.createElement('div')
+            //  Creamos la variable para ir acumulando el total
+            let totalCarrito = 0
             for (const item of carrito) {
                 totals.classList.add('cart-items');
                 totals.innerHTML += `
-
-
                         <div class="cart-row text-center">
                             <span class="cart-item cart-column">${item.nombre}</span>
-                            <span class="cart-price cart-column">${item.precio}</span>
-                            <span class="cart-quantity cart-column"><input type="number" min="1" max="4"></input><button class="btn btn-danger m-3">-</button></span>
-                            <span class="cart-quantity cart-column">Subtotal</span>
+                            <span class="cart-price cart-column">$${item.precio}</span>
+                            <span class="cart-quantity cart-column">${item.cantidad}<button id="${item.nombre}" class="btn btn-danger m-3 boton-menos">-</button></span>
+                            <span class="cart-quantity cart-column">$${item.precio * item.cantidad}</span>
                         </div>
                 `;
+                //  Por cada item tomamos el valor, multiplicamos el precio por la cantidad
+                totalCarrito += item.precio * item.cantidad;
             }
+            //  Finalmente mostramos el total en el DOM
+            document.getElementById('finish').innerHTML = totalCarrito;
             document.getElementById("totalsCart").innerHTML = '';
             document.getElementById("totalsCart").appendChild(totals);
-        }  
+
+            const botones = document.getElementsByClassName("boton-menos");
+            for (const boton of botones) {
+                boton.addEventListener("click", (e) => {
+                    const servicio = e.target.id;
+                    carrito = carrito.filter(item => {
+                        if (item.nombre !== servicio) {
+                            return item;
+                        } else if (item.nombre === servicio) {
+                            item.cantidad -= 1;
+                            if (item.cantidad === 0) {
+                                return false;
+                            } else {
+                                return item;
+                            }
+                        }
+                    });
+                    hacerCarrito();
+                })
+            }
+            addLocalStorage();
+        }
+
+        //Funcion para guardar el carrito en Local Storage
+        function addLocalStorage() {
+            localStorage.setItem('carrito', JSON.stringify(carrito))
+        }
+        hacerCarrito();
 
         //Botón para remover el servicio del carrito
+
         let removeButtons = document.getElementsByClassName('btn-danger');
-        console.log(removeButtons);
         for (let i = 0; i < removeButtons.length; i++) {
             let button = removeButtons[i];
-            button.addEventListener('click', function(event) {
+            button.addEventListener('click', function (event) {
+                //console.log("remove button clicked")
                 let buttonClicked = event.target
-                buttonClicked.parentElement.parentElement.remove()
+                buttonClicked.parentElement.parentElement.remove();
             })
         }
-    
+    }
+
+    //Boton vaciar carrito
+
+    const btnVaciar = document.getElementById('danger')
+    btnVaciar.addEventListener('click', () => {
+        carrito = [];
+        localStorage.clear();
+        totalsCart.innerHTML += `$${espacio}`
     })
+
+
+    //boton animado de compra finalizada
+    function hover() {
+        $(".button").on("mouseenter", function () {
+            return $(this).addClass("hover");
+        });
+    }
+
+    function hoverOff() {
+        $(".button").on("mouseleave", function () {
+            return $(this).removeClass("hover");
+        });
+    }
+
+    function active() {
+        $(".button").on("click", function () {
+            return $(this).addClass("active");
+        });
+    }
+
+    hover();
+    hoverOff();
+    active();
+
+})
