@@ -1,6 +1,6 @@
 $(() => {
 
-    swal("Hola! los valores y tiempo que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
+    swal("Hola! los valores que vas a ver son estimativos. Cualquier parecido con la realidad es pura coincidencia.");
 
     $('h1').css({
         'font-size': '4em',
@@ -58,7 +58,7 @@ $(() => {
     }
 
     function ready() {
-        swal('Gracias por confiar en nosotros. Tu presupuesto ha sido realizado con éxito')
+        swal('Gracias por confiar en nosotros. Tu presupuesto ha sido realizado con éxito');
     }
 
     $(".mostrar").on("click", () => {
